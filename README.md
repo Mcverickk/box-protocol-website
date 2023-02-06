@@ -5,7 +5,7 @@
 This is a smart contract for [Box Protocol](https://boxprotocol.netlify.app/) - a platform for buying and selling tokenized crypto portfolios. It is an easy, self custodial way to invest in boxes representing the hottest ideas and sectors in Web3!.
 The contract is currently deployed on [Goerli Testnet](https://goerli.etherscan.io/address/0x77Fdb12CFe181327Bb46d03b41F8F7599D484228#code)
 
-The contract `BoxProtocol.sol` imports contract `PriceFeed.sol` to fetch ETH & UNI prices from [byog](https://byog.io/) data feeds.
+The contract `BoxProtocol.sol` imports contract `PriceFeed.sol` to fetch prices from Chainlink data feeds.
 
 ## Variables
 
