@@ -1,0 +1,85 @@
+.body {
+  /* background-color: #2a9ecc; */
+  padding: 50px 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+.txHistoryTitle {
+  text-align: center;
+  margin-bottom: 50px;
+  font-weight: 500;
+  font-size: 25px;
+}
+
+.TxBox {
+  margin: 10px 0px;
+  padding: 25px 50px;
+  background-color: rgba(255, 255, 255, 0.01);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.txDate {
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+  background-color: transparent;
+  color: #696969;
+}
+
+.buyType {
+  font-size: 17px;
+  font-weight: 400;
+  text-align: center;
+  background-color: transparent;
+  color: green;
+  padding: 5px 20px;
+  border-radius: 30px;
+  border: 1px solid green;
+}
+
+.sellType {
+  font-size: 17px;
+  font-weight: 400;
+  text-align: center;
+  background-color: transparent;
+  color: rgba(255, 59, 59, 0.645);
+  padding: 5px 20px;
+  border-radius: 40px;
+  border: 1px solid rgba(255, 59, 59, 0.645);
+}
+
+.txAmount {
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
+  background-color: transparent;
+  color: #8e8e8e;
+}
+
+.txBoxName {
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  background-color: transparent;
+  color: #8e8e8e;
+}
+
+.txButton {
+  padding: 8px 25px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: none;
+  font-size: 17px;
+  font-weight: 400;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.txButton:hover {
+  background-color: #00000026;
+}
