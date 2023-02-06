@@ -26,7 +26,7 @@ const SWAYAM = {
 
 const DOCS_LINK = "https://github.com/Mcverickk/box-protocol-frontend";
 
-const ADDRESS = "0x77Fdb12CFe181327Bb46d03b41F8F7599D484228";
+const ADDRESS = "0x9f32e745a6c00bDd867Cb28a0421d7EB5c633c1A";
 
 const ABI = [
   { inputs: [], stateMutability: "nonpayable", type: "constructor" },
@@ -161,6 +161,17 @@ const ABI = [
   { stateMutability: "payable", type: "fallback" },
   {
     inputs: [
+      { internalType: "string", name: "_tokenSymbol", type: "string" },
+      { internalType: "address", name: "_tokenAddress", type: "address" },
+      { internalType: "address", name: "_tokenPriceFeed", type: "address" },
+    ],
+    name: "addToken",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
       { internalType: "address", name: "account", type: "address" },
       { internalType: "uint256", name: "id", type: "uint256" },
     ],
@@ -181,7 +192,7 @@ const ABI = [
   },
   {
     inputs: [
-      { internalType: "uint256", name: "", type: "uint256" },
+      { internalType: "uint24", name: "", type: "uint24" },
       { internalType: "address", name: "", type: "address" },
     ],
     name: "boxBalance",
@@ -190,7 +201,7 @@ const ABI = [
     type: "function",
   },
   {
-    inputs: [{ internalType: "uint256", name: "boxId", type: "uint256" }],
+    inputs: [{ internalType: "uint24", name: "boxId", type: "uint24" }],
     name: "buy",
     outputs: [
       { internalType: "uint256", name: "boxTokenMinted", type: "uint256" },
@@ -216,13 +227,6 @@ const ABI = [
     type: "function",
   },
   {
-    inputs: [],
-    name: "dapiServer",
-    outputs: [{ internalType: "address", name: "", type: "address" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
     inputs: [{ internalType: "uint256", name: "id", type: "uint256" }],
     name: "exists",
     outputs: [{ internalType: "bool", name: "", type: "bool" }],
@@ -231,7 +235,7 @@ const ABI = [
   },
   {
     inputs: [
-      { internalType: "uint256", name: "boxId", type: "uint256" },
+      { internalType: "uint24", name: "boxId", type: "uint24" },
       { internalType: "uint256", name: "tokenNumber", type: "uint256" },
     ],
     name: "getBoxDistribution",
@@ -250,37 +254,32 @@ const ABI = [
     type: "function",
   },
   {
-    inputs: [{ internalType: "uint256", name: "boxId", type: "uint256" }],
+    inputs: [{ internalType: "uint24", name: "boxId", type: "uint24" }],
     name: "getBoxTVL",
     outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
     stateMutability: "view",
     type: "function",
   },
   {
-    inputs: [{ internalType: "uint256", name: "boxId", type: "uint256" }],
+    inputs: [{ internalType: "uint24", name: "boxId", type: "uint24" }],
     name: "getBoxTokenPrice",
     outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
     stateMutability: "view",
     type: "function",
   },
   {
-    inputs: [],
-    name: "getETHprice",
-    outputs: [{ internalType: "int224", name: "value", type: "int224" }],
+    inputs: [
+      { internalType: "address", name: "_tokenPriceFeed", type: "address" },
+    ],
+    name: "getLatestPrice",
+    outputs: [{ internalType: "int256", name: "", type: "int256" }],
     stateMutability: "view",
     type: "function",
   },
   {
-    inputs: [{ internalType: "uint256", name: "boxId", type: "uint256" }],
+    inputs: [{ internalType: "uint24", name: "boxId", type: "uint24" }],
     name: "getNumberOfTokensInBox",
     outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "getUNIprice",
-    outputs: [{ internalType: "int224", name: "value", type: "int224" }],
     stateMutability: "view",
     type: "function",
   },
@@ -329,7 +328,7 @@ const ABI = [
   },
   {
     inputs: [
-      { internalType: "uint256", name: "boxId", type: "uint256" },
+      { internalType: "uint24", name: "boxId", type: "uint24" },
       { internalType: "uint256", name: "tokenSellAmount", type: "uint256" },
     ],
     name: "sell",
