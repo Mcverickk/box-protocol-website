@@ -1,5 +1,5 @@
 import styles from "@/styles/Team.module.css";
-import Navbar from "../components/Navbar/Navbar";
+import Navbar from "../components/Navbar/TeamNavbar";
 import { CHIRAG, TARUN, SWAYAM } from "@/components/constants";
 
 export default function Team() {

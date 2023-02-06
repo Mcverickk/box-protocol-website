@@ -1,4 +1,4 @@
-import Navbar from "../components/Navbar/Navbar";
+import Navbar from "../components/Navbar/AppNavbar";
 import BuySellTab from "@/components/App/BuySellTab";
 import { useEffect, useState, useContext } from "react";
 import styles from "@/styles/App.module.css";
