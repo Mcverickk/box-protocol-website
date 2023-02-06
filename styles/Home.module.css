@@ -1,0 +1,43 @@
+.body {
+  padding: 80px 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.textArea {
+  /* background-color: aqua; */
+}
+.imgArea {
+}
+
+.img {
+  width: 400px;
+}
+
+.maintext {
+  color: rgba(240, 248, 255, 0.85);
+  margin-top: 80px;
+  font-weight: 600;
+  font-size: 40px;
+}
+
+.detailText {
+  color: rgba(240, 248, 255, 0.85);
+  margin: 30px 0px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding-bottom: 15px;
+}
+
+.footerText {
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  color: rgba(240, 248, 255, 0.5);
+  font-size: 12px;
+}

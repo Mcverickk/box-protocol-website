@@ -1,0 +1,61 @@
+.body {
+  /* background-color: #2a9ecc; */
+  padding: 50px;
+}
+
+.cardContainer {
+  /* background-color: rgb(239, 8, 8); */
+  margin: 50px;
+  padding: 20px 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  /* background-color: #2a9ecc; */
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+}
+
+.profileImage {
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+}
+
+.profileDetails {
+  padding: 0px 50px;
+}
+
+.name {
+  padding: 10px 0px;
+  /* color: #2a9ecc; */
+  background-image: linear-gradient(
+    45deg,
+    #2a9ecc,
+    #536de1,
+    #2a9ecc,
+    #536de1,
+    #2a9ecc
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.socialLinks {
+  color: transparent;
+}
+
+.socialIcon {
+  margin-right: 15px;
+}
+
+.socialIcon:hover {
+  color: #536de1;
+}
+
+.bio {
+  padding: 10px 0px;
+  font-size: 14px;
+  color: rgba(240, 248, 255, 0.85);
+}

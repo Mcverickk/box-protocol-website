@@ -1,0 +1,78 @@
+.body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* background-color: aqua; */
+  padding: 50px;
+}
+
+.walletDetails {
+}
+
+.connectWalletBody{
+  margin: 100px 100px;
+  padding: 150px 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 40px;
+
+}
+
+.connectWalletBodyText{
+  background: transparent;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  font-size: 20px;
+  font-weight: 300;
+  color: rgba(240, 248, 255, 0.587)
+}
+
+.loginText{
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.currentNetworkName {
+  background: transparent;
+  /* color: #ff0044; */
+  color: rgba(240, 248, 255, 0.587);
+  font-size: 15px;
+  margin: 5px;
+  text-decoration: none;
+  font-weight: 300;
+}
+.demoNetworkText{
+  text-decoration: none;
+  background: transparent;
+  /* color: rgba(240, 248, 255, 0.587); */
+  color: #ff0044;
+  font-size: 15px;
+  font-weight: 300;
+
+}
+
+.networkSwitchButton {
+  
+  margin-bottom: 10px;
+  padding: 8px 25px;
+  background-color: #2fff001c;
+  border: none;
+  font-size: 17px;
+  border-radius: 40px;
+  cursor: pointer;
+  color: #00ff2f;
+}
+
+.networkSwitchButton:hover {
+  background-color: #00000026;
+}
+
+

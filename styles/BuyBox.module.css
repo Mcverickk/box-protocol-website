@@ -1,0 +1,175 @@
+.outerBox {
+  margin: 30px 30px;
+  padding: 3px;
+  background: linear-gradient(225deg, #344695, #30b9ed);
+  border-radius: 15px;
+}
+
+.box {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 0px 20px 0px #30b7ed48;
+  background: rgb(8, 8, 8);
+  border-radius: 15px;
+}
+
+.buyBox {
+  width: 300px;
+  height: 300px;
+  justify-content: space-evenly;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: black;
+  border-radius: 15px;
+}
+
+.boxName {
+  margin: 0px 15px;
+  margin-top: 20px;
+  font-size: 25px;
+  text-align: center;
+  /* background-image: linear-gradient(45deg, #67b26f, #4ca2cd); */
+  color: #30b9ed;
+  background: transparent;
+
+  /* background-image: linear-gradient(45deg, #4359bc, #37c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+}
+
+.infoArea {
+  padding: 5px 15px;
+  color: aliceblue;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.info {
+  padding: 5px 10px;
+  margin: 5px;
+  background-color: transparent;
+}
+
+.priceInfo {
+  padding: 10px 10px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: transparent;
+}
+
+.infoWithBorder {
+  padding: 5px 10px;
+  margin: 5px;
+  border: 1px solid #436dbc;
+  border-radius: 10px;
+  color: aliceblue;
+}
+
+.inputForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+}
+
+.inputBox {
+  padding: 5px 10px;
+  margin: 10px 10px;
+
+  border: 1px solid #c6c6c69d;
+
+  border-radius: 10px;
+  color: aliceblue;
+  outline: none;
+  text-align: center;
+}
+
+.inputBox::-webkit-outer-spin-button,
+.inputBox::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.inputBox:focus {
+  border: 1px solid #436dbc;
+}
+
+.enterAmounttext {
+  margin: 0px 15px;
+  font-size: 12px;
+  background: transparent;
+}
+
+.infoHeader {
+  font-size: 12px;
+  background-color: transparent;
+}
+
+.infoAmount {
+  background-color: transparent;
+}
+
+.buyPageButton {
+  margin: 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  border: none;
+  padding: 5px 20px;
+  border-radius: 10px;
+  width: 80%;
+  color: rgba(240, 248, 255, 0.747);
+  background-color: #1c1c1c;
+}
+
+.buyPageButton:hover {
+  background-color: #3c3c3c;
+}
+
+.buyButton {
+  font-weight: 500;
+  margin: 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  border: none;
+  padding: 5px;
+  border-radius: 10px;
+  width: 80%;
+  color: #101014;
+  background-image: linear-gradient(225deg, #4359bc, #37c6ff);
+}
+
+.buyButton:hover {
+  background-image: linear-gradient(225deg, #344695, #30b9ed);
+}
+
+.backButton {
+  margin: 15px;
+  margin-bottom: 0px;
+  cursor: pointer;
+  border: none;
+  padding: 5px 20px;
+  border-radius: 10px;
+  width: 30%;
+  color: rgba(240, 248, 255, 0.747);
+
+  background-color: #1c1c1c;
+}
+
+.backButton:hover {
+  background-color: #3c3c3c;
+}
+
+.boxTokenText {
+  margin-top: 15px;
+  color: aliceblue;
+  font-size: 12px;
+}
