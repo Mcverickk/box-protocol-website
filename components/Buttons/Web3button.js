@@ -10,6 +10,7 @@ import {
 } from "wagmi";
 import styles from "@/styles/Navbar.module.css";
 import { useState } from "react";
+import { NETWORK_ID, NETWORK_NAME } from "../constants";
 
 const crossButtonX = (
   <i
@@ -81,8 +82,8 @@ const Web3Button = () => {
   };
 
   const SwitchNetworkButton = () => {
-    const swichToText = "Goerli Network";
-    const switchId = 5;
+    const swichToText = NETWORK_NAME;
+    const switchId = NETWORK_ID;
     const currentNetworkName = chain.name;
 
     return (
@@ -90,7 +91,7 @@ const Web3Button = () => {
         <h3 className={styles.currentNetworkName}>
           Connected to {currentNetworkName}
         </h3>
-        {chain.id !== 5 && (
+        {chain.id !== NETWORK_ID && (
           <button
             className={styles.networkSwitchButton}
             onClick={() => {

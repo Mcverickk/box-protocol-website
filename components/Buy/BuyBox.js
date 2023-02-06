@@ -36,7 +36,7 @@ const BuyBox = ({ box }) => {
         const tx = await contract.buy(box.boxId, {
           value: txValue,
         });
-        const etherscanLink = `https://goerli.etherscan.io/tx/${tx.hash}`;
+        const etherscanLink = `https://polygonscan.com/tx/${tx.hash}`;
         navigationHandler();
         setModal(
           <TransactionInProcess
@@ -73,12 +73,17 @@ const BuyBox = ({ box }) => {
   };
 
   const getData = async () => {
-    const priceTemp = await contract.getBoxTokenPrice(box.boxId);
-    const tvlTemp = await contract.getBoxTVL(box.boxId);
-    const price = priceTemp / 10 ** 18;
-    const tvl = tvlTemp / 10 ** 18;
-    setPrice("$" + price.toFixed(2).toString());
-    setTvl("$" + tvl.toFixed(2).toString());
+    try {
+      const priceTemp = await contract.getBoxTokenPrice(box.boxId);
+      const tvlTemp = await contract.getBoxTVL(box.boxId);
+      const price = priceTemp / 10 ** 18;
+      const tvl = tvlTemp / 10 ** 18;
+      setPrice("$" + price.toFixed(2).toString());
+      setTvl("$" + tvl.toFixed(2).toString());
+    } catch (e) {
+      console.log(e);
+      console.log("Error: getData >> BuyBox");
+    }
   };
 
   const Info = (props) => {
@@ -145,7 +150,7 @@ const BuyBox = ({ box }) => {
             <div className={styles.infoArea}>
               <form onSubmit={buyHandler} className={styles.inputForm}>
                 <PriceInfo title="Buy Price:" value={price} />
-                <p className={styles.enterAmounttext}>Enter Amount in ETH:</p>
+                <p className={styles.enterAmounttext}>Enter Amount in MATIC:</p>
                 <input
                   className={styles.inputBox}
                   type="number"

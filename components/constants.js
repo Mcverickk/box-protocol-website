@@ -26,6 +26,9 @@ const SWAYAM = {
 
 const DOCS_LINK = "https://github.com/Mcverickk/box-protocol-frontend";
 
+const NETWORK_NAME = "Polygon";
+const NETWORK_ID = 137;
+
 const ADDRESS = "0x9f32e745a6c00bDd867Cb28a0421d7EB5c633c1A";
 
 const ABI = [
@@ -379,4 +382,34 @@ const ABI = [
   { stateMutability: "payable", type: "receive" },
 ];
 
-export { CHIRAG, TARUN, SWAYAM, DOCS_LINK, ABI, ADDRESS };
+const OFFICIAL_BOXES = [
+  {
+    boxId: 0,
+    boxName: "Box1",
+    tokenDistribution: [
+      { token: "WMATIC", value: "20%" },
+      { token: "USDT", value: "30%" },
+      { token: "USDC", value: "50%" },
+    ],
+  },
+  {
+    boxId: 1,
+    boxName: "Box2",
+    tokenDistribution: [
+      { token: "USDT", value: "50%" },
+      { token: "USDC", value: "50%" },
+    ],
+  },
+];
+
+export {
+  CHIRAG,
+  TARUN,
+  SWAYAM,
+  DOCS_LINK,
+  ABI,
+  ADDRESS,
+  OFFICIAL_BOXES,
+  NETWORK_ID,
+  NETWORK_NAME,
+};

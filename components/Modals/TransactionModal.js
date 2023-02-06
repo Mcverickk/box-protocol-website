@@ -42,7 +42,7 @@ const TransactionInProcess = ({ etherscanTxLink, backHandler }) => {
             rel="noreferrer"
           >
             <button className={styles.etherscanButton}>
-              View on Etherscan
+              View on Polygonscan
             </button>
           </a>
         </div>
@@ -74,7 +74,7 @@ const TransactionCompleted = ({
           <img src="success.jpeg" className={styles.successImg} />
           <h3 className={styles.modalHeaderText}>Transaction Completed</h3>
           <p className={styles.modalText}>
-            {type === "buy" && `Box Tokens worth ${amount} ETH bought`}
+            {type === "buy" && `Box Tokens worth ${amount} MATIC bought`}
             {type === "sell" && `${amount} Box Tokens sold`}
           </p>
           <a

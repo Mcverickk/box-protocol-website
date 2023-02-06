@@ -4,7 +4,13 @@ import { useEffect, useState, useContext } from "react";
 import styles from "@/styles/App.module.css";
 import { useProvider, useAccount, useNetwork, useSwitchNetwork } from "wagmi";
 import { ethers } from "ethers";
-import { ABI, ADDRESS } from "@/components/constants";
+import {
+  ABI,
+  ADDRESS,
+  OFFICIAL_BOXES,
+  NETWORK_ID,
+  NETWORK_NAME,
+} from "@/components/constants";
 import dynamic from "next/dynamic";
 import { TxModalContext } from "@/components/Modals/TxModalContext";
 import {
@@ -23,34 +29,7 @@ const Web3Button = dynamic(
 export default function App() {
   const [modal, setModal] = useState();
   const [isModalOpen, setModalOpen] = useState(false);
-
-  const [allBox, setBoxes] = useState([
-    {
-      boxId: 0,
-      boxName: "Etherize",
-      tokenDistribution: [
-        { token: "ETH", value: "60%" },
-        { token: "WETH", value: "40%" },
-      ],
-    },
-    {
-      boxId: 1,
-      boxName: "DeXplore",
-      tokenDistribution: [
-        { token: "UNI", value: "80%" },
-        { token: "WETH", value: "20%" },
-      ],
-    },
-    {
-      boxId: 2,
-      boxName: "TrioBox",
-      tokenDistribution: [
-        { token: "ETH", value: "50%" },
-        { token: "WETH", value: "20%" },
-        { token: "UNI", value: "30%" },
-      ],
-    },
-  ]);
+  const [allBox, setBoxes] = useState(OFFICIAL_BOXES);
   const [appArea, setAppArea] = useState();
 
   const { isConnected } = useAccount();
@@ -67,7 +46,7 @@ export default function App() {
   const boxProtocolContract = new ethers.Contract(ADDRESS, ABI, provider);
 
   useEffect(() => {
-    if (isConnected && chain.id === 5) {
+    if (isConnected && chain.id === NETWORK_ID) {
       setAppArea(<LogInView />);
     } else {
       setAppArea(<LogOutView />);
@@ -76,7 +55,7 @@ export default function App() {
 
   useEffect(() => {
     if (isConnected) {
-      if (chain.id === 5) {
+      if (chain.id === NETWORK_ID) {
         setAppArea(<LogInView />);
       } else {
         setAppArea(
@@ -126,8 +105,8 @@ export default function App() {
   };
 
   const SwitchNetworkButton = () => {
-    const swichToText = "Goerli Network";
-    const switchId = 5;
+    const swichToText = NETWORK_NAME;
+    const switchId = NETWORK_ID;
     const currentNetworkName = chain.name;
 
     return (
@@ -137,10 +116,10 @@ export default function App() {
             Connected to {currentNetworkName}
           </h3>
           <p className={styles.demoNetworkText}>
-            Currently the app only works on Goerli Testnet
+            Currently the app only works on {swichToText}
           </p>
         </div>
-        {chain.id !== 5 && (
+        {chain.id !== switchId && (
           <button
             className={styles.networkSwitchButton}
             onClick={() => {

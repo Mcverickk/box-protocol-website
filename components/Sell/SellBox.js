@@ -62,19 +62,29 @@ const SellBox = ({ box }) => {
   };
 
   const getBalance = async () => {
-    if (address) {
-      const result = await contract.balanceOf(address, box.boxId);
-      const bal = (result / 100).toFixed(2).toString();
-      setBalance(bal);
-    } else {
-      console.log("address undefined");
+    try {
+      if (address) {
+        const result = await contract.balanceOf(address, box.boxId);
+        const bal = (result / 100).toFixed(2).toString();
+        setBalance(bal);
+      } else {
+        console.log("address undefined");
+      }
+    } catch (e) {
+      console.log(e);
+      console.log("Error: getBalance >> SellBox");
     }
   };
 
   const getData = async () => {
-    const priceTemp = await contract.getBoxTokenPrice(box.boxId);
-    const price = priceTemp / 10 ** 18;
-    setPrice("$" + price.toFixed(2).toString());
+    try {
+      const priceTemp = await contract.getBoxTokenPrice(box.boxId);
+      const price = priceTemp / 10 ** 18;
+      setPrice("$" + price.toFixed(2).toString());
+    } catch (e) {
+      console.log(e);
+      console.log("Error: getData >> SellBox");
+    }
   };
 
   useEffect(() => {
