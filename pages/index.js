@@ -1,6 +1,7 @@
 import HomeNavbar from "../components/Navbar/HomeNavbar";
 import styles from "@/styles/Home.module.css";
 import AppButton from "@/components/Buttons/AppButton";
+import GlowingButton from "@/components/Buttons/GlowingButton";
 
 export default function Home() {
   return (
@@ -20,7 +21,8 @@ export default function Home() {
               <br /> to invest in boxes representing the hottest ideas and
               sectors in Web3!
             </p>
-            <AppButton text="Launch App" />
+            {/* <AppButton text="Launch App" /> */}
+            <GlowingButton />
           </div>
           <div className={styles.imgArea}>
             <img src="./image3.png" className={styles.img} />
