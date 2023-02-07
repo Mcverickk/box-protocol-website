@@ -6,6 +6,7 @@
 }
 
 .txHistoryTitle {
+  
   text-align: center;
   margin-bottom: 50px;
   font-weight: 500;
@@ -15,7 +16,7 @@
 .TxBox {
   margin: 10px 0px;
   padding: 25px 50px;
-  background-color: rgba(255, 255, 255, 0.01);
+  background-color: rgba(255, 255, 255, 0.02);
   border-radius: 10px;
   display: flex;
   flex-direction: row;
@@ -28,27 +29,27 @@
   font-weight: 400;
   text-align: center;
   background-color: transparent;
-  color: #696969;
+  color: rgba(240, 248, 255, 0.747);
 }
 
 .buyType {
-  font-size: 17px;
+  font-size: 12px;
   font-weight: 400;
   text-align: center;
   background-color: transparent;
   color: green;
-  padding: 5px 20px;
+  padding: 3px 12px;
   border-radius: 30px;
   border: 1px solid green;
 }
 
 .sellType {
-  font-size: 17px;
+  font-size: 12px;
   font-weight: 400;
   text-align: center;
   background-color: transparent;
   color: rgba(255, 59, 59, 0.645);
-  padding: 5px 20px;
+  padding: 3px 12px;
   border-radius: 40px;
   border: 1px solid rgba(255, 59, 59, 0.645);
 }
@@ -58,7 +59,7 @@
   font-weight: 400;
   text-align: center;
   background-color: transparent;
-  color: #8e8e8e;
+  color: rgba(240, 248, 255, 0.747);
 }
 
 .txBoxName {
@@ -66,7 +67,7 @@
   font-weight: 400;
   text-align: center;
   background-color: transparent;
-  color: #8e8e8e;
+  color: rgba(240, 248, 255, 0.747);
 }
 
 .txButton {
