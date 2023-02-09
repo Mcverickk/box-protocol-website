@@ -17,7 +17,7 @@ const SingleTxBox = (props) => {
         <h5 className={styles.txAmount}>{props.amount} Box Token</h5>
       </div>
       <div className={styles.column4}>
-        <h3 className={styles.txBoxName}>{props.boxName}</h3>
+        <h3 className={styles.txBoxName}>Box {props.boxName}</h3>
       </div>
       <div className={styles.column5}>
         <a href={props.etherscanTxLink} target="_blank" rel="noreferrer">
