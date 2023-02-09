@@ -30,14 +30,6 @@ export default function App() {
 
   const { isConnected } = useAccount();
   const { chain } = useNetwork();
-  const {
-    chains,
-    error: switchNetworkError,
-    isLoading: switchNetworkIsLoading,
-    pendingChainId,
-    switchNetwork,
-  } = useSwitchNetwork();
-
   const provider = useProvider();
   const boxProtocolContract = new ethers.Contract(ADDRESS, ABI, provider);
 
