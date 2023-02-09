@@ -87,8 +87,28 @@ export default function Tx() {
     }
   };
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+  if (!address) {
+    return (
+      <div>
+        <Navbar activePage="Tx" />
+        <p className={styles.loadingScreen}>Connect Wallet!</p>
+      </div>
+    );
+  }
+  if (loading)
+    return (
+      <div>
+        <Navbar activePage="Tx" />
+        <p className={styles.loadingScreen}>Loading...</p>
+      </div>
+    );
+  if (error)
+    return (
+      <div>
+        <Navbar activePage="Tx" />
+        <p className={styles.loadingScreen}>Error: {error.message}</p>
+      </div>
+    );
   if (!txData) return null;
 
   return (
