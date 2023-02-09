@@ -46,87 +46,6 @@
   text-decoration: none;
 }
 
-.modalOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  backdrop-filter: blur(4px);
-}
-
-.modalContent {
-  background-color: #f0f8ff;
-  padding: 20px;
-  border-radius: 10px;
-  width: 20%;
-  max-height: 30%;
-  overflow-y: auto;
-}
-
-.modalHeader {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
-  background-color: transparent;
-}
-
-.modalHeader h2 {
-  margin: 0;
-  color: #101014;
-  background-color: transparent;
-  font-size: 20px;
-}
-
-.modalFooter {
-  text-align: center;
-  background-color: transparent;
-  /* background-color: #30b9ed; */
-}
-
-.modalCrossButton {
-  padding-left: 4px;
-  color: #101014;
-  cursor: pointer;
-
-  background-color: transparent;
-  border: none;
-  font-size: 12px;
-  border-radius: 10px;
-}
-.modalCrossButton:hover {
-  /* background-color: #00000020; */
-}
-
-.copyButton {
-  cursor: pointer;
-  background: transparent;
-  border-radius: 50px;
-  border: none;
-  text-align: center;
-}
-
-.copyIcon {
-  margin: 0px 10px;
-  margin-right: 15px;
-  align-items: center;
-  width: 20px;
-  background: transparent;
-}
-
-.modalHeaderText {
-  display: flex;
-  align-items: center;
-}
-
 .dropdown {
   width: 250px;
   position: relative;
@@ -140,7 +59,6 @@
   background-color: #17171d;
   z-index: 1;
   width: 250px;
-  cursor: pointer;
   font-size: 15px;
   text-align: center;
   text-decoration: none;
@@ -148,6 +66,7 @@
   border-radius: 20px;
   padding: 15px 0px;
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+  /* border: 0.001px solid #5a5a5af6; */
 }
 
 .dropdownContent {
@@ -172,6 +91,7 @@
   margin-bottom: 10px;
   cursor: pointer;
   border-radius: 10px;
+  color: rgba(240, 248, 255, 0.75);
 }
 
 .dropdownOptionsButton:hover {
@@ -230,7 +150,7 @@
 
 .dropdownHeader h2 {
   margin: 0;
-  color: aliceblue;
+  color: rgba(240, 248, 255, 0.8);
   background-color: transparent;
   font-size: 18px;
 }
@@ -241,7 +161,7 @@
 }
 
 .dropdownCopyButton {
-  background-color: aliceblue;
+  background-color: rgba(240, 248, 255, 0.8);
   cursor: pointer;
   /* background: transparent; */
   border-radius: 30px;
@@ -260,7 +180,7 @@
 
 .currentNetworkName {
   background: transparent;
-  color: rgba(240, 248, 255, 0.83);
+  color: rgba(240, 248, 255, 0.75);
   text-align: center;
   font-size: 12px;
   margin: 2px 0px;

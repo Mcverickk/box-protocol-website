@@ -1,6 +1,6 @@
 import { useConnect, useAccount, useEnsName } from "wagmi";
 import styles from "@/styles/Web3Button.module.css";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { SwitchNetworkButton, CurrentNetworkText } from "./SwitchNetworkButton";
 import { DisconnectButton } from "./DisconnectButton";
@@ -71,6 +71,24 @@ const Web3Button = () => {
   };
 
   const DisconnectWalletButton = () => {
+    const dropdownRef = useRef(null);
+
+    useEffect(() => {
+      const handleClickOutside = (event) => {
+        if (
+          dropdownRef.current &&
+          !dropdownRef.current.contains(event.target)
+        ) {
+          setIsDropdownOpen(false);
+        }
+      };
+
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [setIsDropdownOpen]);
+
     let displayAddress =
       address.substring(0, 6) + "...." + address.substring(address.length - 4);
 
@@ -80,7 +98,7 @@ const Web3Button = () => {
 
     return (
       <div className={styles.disconnectArea}>
-        <div className={styles.dropdown}>
+        <div className={styles.dropdown} ref={dropdownRef}>
           <button
             className={styles.diconnectButtonHandler}
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -114,7 +132,6 @@ const Web3Button = () => {
                   &nbsp;&nbsp;&nbsp;&nbsp;My Investments
                 </button>
               </li>
-
               <li className={styles.dropdownContentItems}>
                 <Link href="/tx" className={styles.dropdownOptionsLink}>
                   <button className={styles.dropdownOptionsButton}>

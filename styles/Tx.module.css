@@ -68,7 +68,7 @@
   font-weight: 400;
   text-align: center;
   background-color: transparent;
-  color: rgba(240, 248, 255, 0.747);
+  color: rgba(240, 248, 255, 0.75);
 }
 
 .buyType {
@@ -98,7 +98,7 @@
   font-weight: 400;
   text-align: center;
   background-color: transparent;
-  color: rgba(240, 248, 255, 0.747);
+  color: rgba(240, 248, 255, 0.75);
 }
 
 .txBoxName {
@@ -106,7 +106,7 @@
   font-weight: 400;
   text-align: center;
   background-color: transparent;
-  color: rgba(240, 248, 255, 0.747);
+  color: rgba(240, 248, 255, 0.75);
 }
 
 .txButton {
@@ -117,7 +117,7 @@
   font-weight: 400;
   border-radius: 10px;
   cursor: pointer;
-  color: rgba(240, 248, 255, 0.747);
+  color: rgba(240, 248, 255, 0.75);
 }
 
 .txButton:hover {
