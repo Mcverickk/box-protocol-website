@@ -31,13 +31,16 @@ export default function Tx() {
 
   const TxHistoryList = () => {
     try {
+      let c = 0;
       const x = txData.data.items.map((tx) => {
         if (
           ethers.utils.getAddress(address) ===
             ethers.utils.getAddress(tx.from_address) &&
-          tx.successful &&
-          (txType === "Buy" || txType === "Sell")
+          tx.successful
         ) {
+          let txType;
+          let amount;
+          let boxId;
           const link = `https://polygonscan.com/tx/${tx.tx_hash}`;
           const date = new Date(tx.block_signed_at);
           const options = {
@@ -46,10 +49,6 @@ export default function Tx() {
             day: "numeric",
           };
           const normalDate = date.toLocaleDateString("en-US", options);
-          let txType;
-          let amount;
-          let boxId;
-
           tx.log_events.map((e) => {
             if (e.decoded && e.decoded.name === "TransferSingle") {
               if (
@@ -65,19 +64,21 @@ export default function Tx() {
             }
           });
 
-          return (
-            <SingleTxBox
-              date={normalDate}
-              txType={txType}
-              amount={amount}
-              boxName={boxId}
-              etherscanTxLink={link}
-            />
-          );
+          if (txType === "Buy" || txType === "Sell") {
+            c++;
+            return (
+              <SingleTxBox
+                date={normalDate}
+                txType={txType}
+                amount={amount}
+                boxName={boxId}
+                etherscanTxLink={link}
+              />
+            );
+          }
         }
       });
-
-      if (TxHistoryList.length === 0) {
+      if (c === 0) {
         return <p className={styles.noTransactions}>No transactions</p>;
       }
       return x;
