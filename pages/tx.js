@@ -31,39 +31,39 @@ export default function Tx() {
 
   const TxHistoryList = () => {
     const x = txData.data.items.map((tx) => {
-      const link = `https://polygonscan.com/tx/${tx.tx_hash}`;
-      const date = new Date(tx.block_signed_at);
-      const options = {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      };
-      const normalDate = date.toLocaleDateString("en-US", options);
-      let txType;
-      let amount;
-      let boxId;
-
-      tx.log_events.map((e) => {
-        if (e.decoded && e.decoded.name === "TransferSingle") {
-          if (
-            ethers.utils.getAddress(e.decoded.params[2].value) ===
-            ethers.utils.getAddress(address)
-          ) {
-            txType = "Buy";
-          } else {
-            txType = "Sell";
-          }
-          boxId = e.decoded.params[3].value;
-          amount = (e.decoded.params[4].value / 10 ** 2).toFixed(2);
-        }
-      });
-
       if (
         ethers.utils.getAddress(address) ===
           ethers.utils.getAddress(tx.from_address) &&
         tx.successful &&
         (txType === "Buy" || txType === "Sell")
       ) {
+        const link = `https://polygonscan.com/tx/${tx.tx_hash}`;
+        const date = new Date(tx.block_signed_at);
+        const options = {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        };
+        const normalDate = date.toLocaleDateString("en-US", options);
+        let txType;
+        let amount;
+        let boxId;
+
+        tx.log_events.map((e) => {
+          if (e.decoded && e.decoded.name === "TransferSingle") {
+            if (
+              ethers.utils.getAddress(e.decoded.params[2].value) ===
+              ethers.utils.getAddress(address)
+            ) {
+              txType = "Buy";
+            } else {
+              txType = "Sell";
+            }
+            boxId = e.decoded.params[3].value;
+            amount = (e.decoded.params[4].value / 10 ** 2).toFixed(2);
+          }
+        });
+
         return (
           <SingleTxBox
             date={normalDate}
@@ -76,6 +76,9 @@ export default function Tx() {
       }
     });
 
+    if (TxHistoryList.length === 0) {
+      return <p className={styles.noTransactions}>No transactions</p>;
+    }
     return x;
   };
 
