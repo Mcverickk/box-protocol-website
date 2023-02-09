@@ -21,7 +21,7 @@ const SingleTxBox = (props) => {
       </div>
       <div className={styles.column5}>
         <a href={props.etherscanTxLink} target="_blank" rel="noreferrer">
-          <button className={styles.txButton}>View in Etherscan</button>
+          <button className={styles.txButton}>View in Polygonscan</button>
         </a>
       </div>
     </div>
