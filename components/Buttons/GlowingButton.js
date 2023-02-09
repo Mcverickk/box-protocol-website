@@ -5,9 +5,7 @@ const GlowingButton = () => {
   return (
     <Link href="/app" className={styles.root}>
       <button className={styles.glowingBtn}>
-        <span className={styles.glowingTxt}>
-          La<span className={styles.faultyLetter}>u</span>nch App
-        </span>
+        <span className={styles.glowingTxt}>Launch App</span>
       </button>
     </Link>
   );

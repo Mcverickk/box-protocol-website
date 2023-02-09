@@ -1,5 +1,5 @@
 import styles from "@/styles/Tx.module.css";
-import Navbar from "../components/Navbar/TeamNavbar";
+import Navbar from "../components/Navbar/AppNavbar";
 import { SingleTxBox } from "@/components/TxHistory/SingleTxBox";
 
 export default function Team() {
@@ -33,7 +33,7 @@ export default function Team() {
   return (
     <>
       <main className={styles.main}>
-        <Navbar activePage="Team" />
+        <Navbar activePage="Tx" />
         <div className={styles.body}>
           <h3 className={styles.txHistoryTitle}>Transaction History</h3>
           <TxHistoryList />

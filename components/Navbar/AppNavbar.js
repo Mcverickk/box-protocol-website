@@ -2,7 +2,6 @@ import styles from "@/styles/Navbar.module.css";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { useState } from "react";
-// import Web3Button from "./Web3button";
 
 const Web3Button = dynamic(
   () => {
@@ -26,17 +25,7 @@ const Navbar = ({ activePage }) => {
             }
             href="/app"
           >
-            App
-          </Link>
-        </li>
-        <li className={styles.navlistitem}>
-          <Link
-            className={
-              activePage == "Team" ? styles.navTextActive : styles.navText
-            }
-            href="/team"
-          >
-            Team
+            Discover
           </Link>
         </li>
         <li className={styles.navlistitem}>

@@ -1,16 +1,9 @@
-import {
-  useConnect,
-  useAccount,
-  useDisconnect,
-  useEnsName,
-  useNetwork,
-  useSwitchNetwork,
-  goerli,
-  mainnet,
-} from "wagmi";
-import styles from "@/styles/Navbar.module.css";
+import { useConnect, useAccount, useEnsName } from "wagmi";
+import styles from "@/styles/Web3Button.module.css";
 import { useState } from "react";
-import { NETWORK_ID, NETWORK_NAME } from "../constants";
+import Link from "next/link";
+import { SwitchNetworkButton, CurrentNetworkText } from "./SwitchNetworkButton";
+import { DisconnectButton } from "./DisconnectButton";
 
 const crossButtonX = (
   <i
@@ -29,10 +22,15 @@ const crossButtonX = (
   />
 );
 
+const iconStyle = {
+  background: "transparent",
+  fontSize: "15px",
+  color: "#f0f8ff",
+};
+
 const Web3Button = () => {
-  const { disconnect } = useDisconnect();
-  const [isOpen, setIsOpen] = useState(false);
   const [copyStatus, setCopyStatus] = useState("./copy.png");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const {
     connect,
@@ -42,15 +40,6 @@ const Web3Button = () => {
     pendingConnector,
   } = useConnect();
   const { address, isConnected, isDisconnected, isConnecting } = useAccount();
-  const { chain } = useNetwork();
-  const {
-    chains,
-    error: switchNetworkError,
-    isLoading: switchNetworkIsLoading,
-    pendingChainId,
-    switchNetwork,
-  } = useSwitchNetwork();
-  // console.log({ chain });
 
   const { data: ensName } = useEnsName({
     address: address,
@@ -81,31 +70,6 @@ const Web3Button = () => {
     );
   };
 
-  const SwitchNetworkButton = () => {
-    const swichToText = NETWORK_NAME;
-    const switchId = NETWORK_ID;
-    const currentNetworkName = chain.name;
-
-    return (
-      <>
-        <h3 className={styles.currentNetworkName}>
-          Connected to {currentNetworkName}
-        </h3>
-        {chain.id !== NETWORK_ID && (
-          <button
-            className={styles.networkSwitchButton}
-            onClick={() => {
-              switchNetwork?.(switchId);
-              // setIsOpen(false);
-            }}
-          >
-            Switch to {swichToText}
-          </button>
-        )}
-      </>
-    );
-  };
-
   const DisconnectWalletButton = () => {
     let displayAddress =
       address.substring(0, 6) + "...." + address.substring(address.length - 4);
@@ -116,56 +80,64 @@ const Web3Button = () => {
 
     return (
       <div className={styles.disconnectArea}>
-        <button
-          className={styles.diconnectButtonHandler}
-          onClick={() => setIsOpen(true)}
-        >
-          {displayAddress}
-        </button>
-        {isOpen && (
-          <div className={styles.modalOverlay}>
-            <div className={styles.modalContent}>
-              <div className={styles.modalHeader}>
-                <h2 className={styles.modalHeaderText}>
-                  {displayAddress}
-                  {isConnected && (
-                    <button
-                      className={styles.copyButton}
-                      onClick={copyAddressHandler}
-                    >
-                      <img className={styles.copyIcon} src={copyStatus} />
-                    </button>
-                  )}
-                </h2>
-                <button
-                  className={styles.modalCrossButton}
-                  onClick={() => setIsOpen(false)}
-                >
-                  {crossButtonX}
+        <div className={styles.dropdown}>
+          <button
+            className={styles.diconnectButtonHandler}
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+          >
+            {displayAddress}
+          </button>
+          {isDropdownOpen && (
+            <ul className={styles.dropdownContent}>
+              <li className={styles.dropdownContentItems}>
+                <div className={styles.dropdownHeader}>
+                  <h2 className={styles.dropdownHeaderText}>
+                    {displayAddress}
+                    {isConnected && (
+                      <button
+                        className={styles.dropdownCopyButton}
+                        onClick={copyAddressHandler}
+                      >
+                        <img
+                          className={styles.dropdownCopyIcon}
+                          src={copyStatus}
+                        />
+                      </button>
+                    )}
+                  </h2>
+                  <CurrentNetworkText />
+                </div>
+              </li>
+              <li className={styles.dropdownContentItems}>
+                <button className={styles.dropdownOptionsButton}>
+                  <i class="bi bi-wallet2" style={iconStyle} />
+                  &nbsp;&nbsp;&nbsp;&nbsp;My Investments
                 </button>
-              </div>
-              <div className={styles.modalFooter}>
-                <SwitchNetworkButton />
-                <button
-                  className={styles.disconnectButton}
-                  onClick={() => {
-                    disconnect();
-                    setIsOpen(false);
-                  }}
-                >
-                  Disconnect
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
+              </li>
+
+              <li className={styles.dropdownContentItems}>
+                <Link href="/tx" className={styles.dropdownOptionsLink}>
+                  <button className={styles.dropdownOptionsButton}>
+                    <i class="bi bi-journal-text" style={iconStyle} />
+                    &nbsp;&nbsp;&nbsp;&nbsp;Transaction History
+                  </button>
+                </Link>
+              </li>
+              <li className={styles.dropdownContentItems}>
+                <SwitchNetworkButton setIsDropdownOpen={setIsDropdownOpen} />
+              </li>
+              <li className={styles.dropdownContentItems}>
+                <DisconnectButton setIsDropdownOpen={setIsDropdownOpen} />
+              </li>
+            </ul>
+          )}
+        </div>
       </div>
     );
   };
 
   return (
     <>{isConnected ? <DisconnectWalletButton /> : <ConnectWalletButton />}</>
-    // <ConnectWalletButton />
   );
 };
 

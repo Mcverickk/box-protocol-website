@@ -32,7 +32,7 @@
     0px 0px 0.5em 0px var(--glow-color);
   box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
     0px 0px 0.5em 0px var(--glow-color);
-  animation: border-flicker 2s linear infinite;
+  /* animation: border-flicker 2s linear infinite; */
 }
 
 .glowingTxt {
@@ -44,13 +44,13 @@
   -moz-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
     0 0 0.45em var(--glow-color);
   text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--glow-color);
-  animation: text-flicker 3s linear infinite;
+  /* animation: text-flicker 3s linear infinite; */
 }
 
 .faultyLetter {
   background: transparent;
   opacity: 0.5;
-  animation: faulty-flicker 2s linear infinite;
+  /* animation: faulty-flicker 2s linear infinite; */
 }
 
 .glowingBtn::before {

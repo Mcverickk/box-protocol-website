@@ -6,7 +6,6 @@
 }
 
 .txHistoryTitle {
-  
   text-align: center;
   margin-bottom: 50px;
   font-weight: 500;
@@ -19,9 +18,49 @@
   background-color: rgba(255, 255, 255, 0.02);
   border-radius: 10px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  /* flex-direction: row; */
+  /* justify-content: space-between; */
   align-items: center;
+}
+
+.column1 {
+  /* background-color: rgb(100, 100, 100); */
+  width: 60%;
+  background-color: transparent;
+  display: flex;
+  justify-content: left;
+}
+
+.column2 {
+  /* background-color: red; */
+  width: 30%;
+  background-color: transparent;
+  display: flex;
+  justify-content: left;
+}
+
+.column3 {
+  width: 100%;
+  background-color: transparent;
+  /* background-color: blue; */
+  display: flex;
+  justify-content: center;
+}
+
+.column4 {
+  width: 30%;
+  background-color: transparent;
+  /* background-color: orange; */
+  display: flex;
+  justify-content: center;
+}
+
+.column5 {
+  width: 100%;
+  background-color: transparent;
+  /* background-color: pink; */
+  display: flex;
+  justify-content: right;
 }
 
 .txDate {
@@ -48,10 +87,10 @@
   font-weight: 400;
   text-align: center;
   background-color: transparent;
-  color: rgba(255, 59, 59, 0.645);
+  color: #ff6961e3;
   padding: 3px 12px;
   border-radius: 40px;
-  border: 1px solid rgba(255, 59, 59, 0.645);
+  border: 1px solid #ff6961e3;
 }
 
 .txAmount {
@@ -78,7 +117,7 @@
   font-weight: 400;
   border-radius: 10px;
   cursor: pointer;
-  color: #ffffff;
+  color: rgba(240, 248, 255, 0.747);
 }
 
 .txButton:hover {

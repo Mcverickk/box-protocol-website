@@ -1,0 +1,218 @@
+.dropdown {
+  width: 200px;
+  position: relative;
+  display: inline-block;
+}
+.dropdownContent {
+  list-style-type: none;
+  display: none;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.05);
+  /* background-color: green; */
+  /* box-shadow: 0px 8px 16px 0px rgba(255, 255, 255, 0.2); */
+  z-index: 1;
+  /* border-radius: 10px; */
+  /* margin-top: 10px; */
+
+  width: 200px;
+  cursor: pointer;
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 20px;
+}
+
+.dropdown:hover .dropdownContent {
+  display: block;
+}
+
+.dropdownContentItems {
+  text-align: left;
+  padding: 0px 25px;
+  margin: 20px 0px;
+  background-color: transparent;
+  border-radius: 20px;
+}
+
+.dropdownIcons {
+  align-items: center;
+  font-size: 15px;
+}
+
+.connectButton {
+  text-decoration: none;
+  width: 180px;
+  cursor: pointer;
+  padding: 8px 20px;
+  font-size: 17px;
+  text-align: center;
+  display: inline-block;
+  font-weight: 500;
+  color: #101014;
+  text-decoration: none;
+  border: none;
+  background: linear-gradient(45deg, #3c51ae, #30b9ed) 0;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.connectButton:hover {
+  text-decoration: none;
+  background: linear-gradient(45deg, #3a4ea9f8, #2ba2d1f6);
+}
+
+.currentNetworkName {
+  background: transparent;
+  color: #101014;
+  font-size: 15px;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.networkSwitchButton {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px 25px;
+  background-color: #0000001c;
+  border: none;
+  font-size: 17px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #101014;
+}
+
+.networkSwitchButton:hover {
+  background-color: #00000026;
+}
+
+.diconnectButtonHandler {
+  width: 200px;
+  cursor: pointer;
+  padding: 8px 20px;
+  font-size: 17px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 500;
+  color: #2ba2d1f6;
+  border-radius: 30px;
+  border: none;
+  border: 1px solid #2ba2d1f6;
+  /* background: linear-gradient(45deg, #3c51ae, #30b9ed); */
+}
+
+.diconnectButtonHandler:hover {
+  /* background: linear-gradient(45deg, #3a4ea9f8, #2ba2d1f6); */
+  background-color: #2ba2d1f6;
+  color: #101014;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.disconnectButton {
+  width: 100%;
+  padding: 8px 25px;
+  background-color: #ff6961e3;
+  border: none;
+  font-size: 17px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #101014;
+}
+.disconnectButton:hover {
+  background-color: #ff6961;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(4px);
+}
+
+.modalContent {
+  background-color: aliceblue;
+  padding: 20px;
+  border-radius: 10px;
+  width: 20%;
+  max-height: 30%;
+  overflow-y: auto;
+}
+
+.modalHeader {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  background-color: transparent;
+}
+
+.modalHeader h2 {
+  margin: 0;
+  color: #101014;
+  background-color: transparent;
+  font-size: 20px;
+}
+
+.modalFooter {
+  text-align: center;
+  background-color: transparent;
+  /* background-color: #30b9ed; */
+}
+
+.modalCrossButton {
+  padding-left: 4px;
+  color: #101014;
+  cursor: pointer;
+
+  background-color: transparent;
+  border: none;
+  font-size: 12px;
+  border-radius: 10px;
+}
+.modalCrossButton:hover {
+  /* background-color: #00000020; */
+}
+
+.copyButton {
+  cursor: pointer;
+  background: transparent;
+  border-radius: 50px;
+  border: none;
+  text-align: center;
+}
+
+.copyIcon {
+  margin: 0px 10px;
+  margin-right: 15px;
+  align-items: center;
+  width: 20px;
+  background: transparent;
+}
+
+.modalHeaderText {
+  display: flex;
+  align-items: center;
+}
+
+.dropdown {
+  width: 200px;
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown:hover .dropdownContent {
+  display: block;
+}
