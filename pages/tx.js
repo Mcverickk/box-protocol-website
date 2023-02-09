@@ -36,8 +36,8 @@ export default function Team() {
       <main className={styles.main}>
         <Navbar activePage="Tx" />
         <div className={styles.body}>
-          <Link href="/app">
-            <button className={styles.backButton}>
+          <button className={styles.backButton}>
+            <Link className={styles.backButton} href="/app">
               <i
                 className="bi bi-chevron-left"
                 style={{
@@ -53,8 +53,8 @@ export default function Team() {
                 }}
               />
               <p className={styles.backButtonText}>&nbsp;Back</p>
-            </button>
-          </Link>
+            </Link>
+          </button>
           <h3 className={styles.txHistoryTitle}>Transaction History</h3>
           <TxHistoryList />
         </div>
