@@ -13,11 +13,7 @@ import {
 } from "@/components/constants";
 import dynamic from "next/dynamic";
 import { TxModalContext } from "@/components/Modals/TxModalContext";
-import {
-  TransactionCompleted,
-  TransactionFailed,
-  TransactionInProcess,
-} from "@/components/Modals/TransactionModal";
+import { SwitchNetworkButton2 } from "@/components/Buttons/SwitchNetworkButton";
 
 const Web3Button = dynamic(
   () => {
@@ -60,7 +56,7 @@ export default function App() {
       } else {
         setAppArea(
           <div className={styles.connectWalletBody}>
-            <SwitchNetworkButton />
+            <SwitchNetworkButton2 />
           </div>
         );
       }
@@ -80,7 +76,7 @@ export default function App() {
     return (
       <div className={styles.connectWalletBody}>
         {isConnected ? (
-          <SwitchNetworkButton />
+          <SwitchNetworkButton2 />
         ) : (
           <>
             <h4 className={styles.connectWalletBodyText}>
@@ -101,35 +97,6 @@ export default function App() {
           <BuySellTab buyBoxes={allBox} sellBoxes={allBox} />
         </TxModalContext.Provider>
       </div>
-    );
-  };
-
-  const SwitchNetworkButton = () => {
-    const swichToText = NETWORK_NAME;
-    const switchId = NETWORK_ID;
-    const currentNetworkName = chain.name;
-
-    return (
-      <>
-        <div className={styles.loginText}>
-          <h3 className={styles.currentNetworkName}>
-            Connected to {currentNetworkName}
-          </h3>
-          <p className={styles.demoNetworkText}>
-            Currently the app only works on {swichToText}
-          </p>
-        </div>
-        {chain.id !== switchId && (
-          <button
-            className={styles.networkSwitchButton}
-            onClick={() => {
-              switchNetwork?.(switchId);
-            }}
-          >
-            Switch to {swichToText}
-          </button>
-        )}
-      </>
     );
   };
 
