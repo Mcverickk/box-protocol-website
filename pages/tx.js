@@ -1,6 +1,7 @@
 import styles from "@/styles/Tx.module.css";
 import Navbar from "../components/Navbar/AppNavbar";
 import { SingleTxBox } from "@/components/TxHistory/SingleTxBox";
+import Link from "next/link";
 
 export default function Team() {
   const txData = [
@@ -35,6 +36,25 @@ export default function Team() {
       <main className={styles.main}>
         <Navbar activePage="Tx" />
         <div className={styles.body}>
+          <Link href="/app">
+            <button className={styles.backButton}>
+              <i
+                className="bi bi-chevron-left"
+                style={{
+                  background: "transparent",
+                  fontSize: "17px",
+                  color: "rgba(240, 248, 255, 0.75)",
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.color = "rgba(240, 248, 255, 0.9)";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.color = "rgba(240, 248, 255, 0.75)";
+                }}
+              />
+              <p className={styles.backButtonText}>&nbsp;Back</p>
+            </button>
+          </Link>
           <h3 className={styles.txHistoryTitle}>Transaction History</h3>
           <TxHistoryList />
         </div>

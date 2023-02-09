@@ -123,3 +123,22 @@
 .txButton:hover {
   background-color: #00000026;
 }
+
+.backButton {
+  display: flex;
+  width: 70px;
+  border: none;
+  background-color: transparent;
+}
+
+.backButtonText {
+  cursor: pointer;
+  color: rgba(240, 248, 255, 0.75);
+  font-size: 17px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.backButtonText:hover {
+  color: rgba(240, 248, 255, 0.9);
+}
