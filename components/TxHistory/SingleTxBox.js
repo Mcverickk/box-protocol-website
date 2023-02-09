@@ -14,17 +14,15 @@ const SingleTxBox = (props) => {
         </h4>
       </div>
       <div className={styles.column3}>
-        {props.txType === "Buy" ? (
-          <h5 className={styles.txAmount}>{props.amount} ETH</h5>
-        ) : (
-          <h5 className={styles.txAmount}>{props.amount} Box Token</h5>
-        )}
+        <h5 className={styles.txAmount}>{props.amount} Box Token</h5>
       </div>
       <div className={styles.column4}>
         <h3 className={styles.txBoxName}>{props.boxName}</h3>
       </div>
       <div className={styles.column5}>
-        <button className={styles.txButton}>View in Etherscan</button>
+        <a href={props.etherscanTxLink} target="_blank" rel="noreferrer">
+          <button className={styles.txButton}>View in Etherscan</button>
+        </a>
       </div>
     </div>
   );

@@ -26,7 +26,7 @@ const Navbar = ({ activePage }) => {
             Discover
           </Link>
         </li>
-        <li className={styles.navlistitem}>
+        {/* <li className={styles.navlistitem}>
           <Link
             className={
               activePage == "createbox" ? styles.navTextActive : styles.navText
@@ -34,6 +34,16 @@ const Navbar = ({ activePage }) => {
             href="/createbox"
           >
             Create Box
+          </Link>
+        </li> */}
+        <li className={styles.navlistitem}>
+          <Link
+            className={
+              activePage == "boxswap" ? styles.navTextActive : styles.navText
+            }
+            href="/boxswap"
+          >
+            Box Swap
           </Link>
         </li>
         <li className={styles.navlistitem}>

@@ -1,4 +1,4 @@
-import styles from "@/styles/Team.module.css";
+import styles from "@/styles/CreateBox.module.css";
 import Navbar from "@/components/Navbar/AppNavbar";
 
 export default function CreateBox() {
