@@ -97,9 +97,9 @@ const BuyBox = ({ box }) => {
 
   const PriceInfo = (props) => {
     return (
-      <div className={styles.priceInfo}>
-        <p className={styles.infoHeader}>{props.title}&nbsp;</p>
-        <p className={styles.infoAmount}>{props.value}</p>
+      <div className={styles.priceInfo2}>
+        <p className={styles.infoHeader2}>{props.title}&nbsp;</p>
+        <p className={styles.infoAmount2}>{props.value}</p>
       </div>
     );
   };
@@ -117,20 +117,28 @@ const BuyBox = ({ box }) => {
     return (
       <div className={styles.outerBox}>
         <div className={styles.box}>
+          <br />
           <h2 className={styles.boxName}>{box.boxName}</h2>
+          <h2 className={styles.boxPrice}>{price}</h2>
+          {/* <InfoWithBorder title="Total Value Locked" value={tvl} /> */}
+
           <div className={styles.infoArea}>
             {box.tokenDistribution.map((t) => {
               return <Info title={t.token} value={t.value} key={t.token} />;
             })}
           </div>
-          <div className={styles.infoArea}>
+          {/* <div className={styles.infoArea2}>
             <InfoWithBorder title="Price" value={price} />
             <InfoWithBorder title="Total Value Locked" value={tvl} />
+          </div> */}
+          <div className={styles.buyPageButtonDiv}>
+            <button
+              className={styles.buyPageButton}
+              onClick={navigationHandler}
+            >
+              Proceed to Buy
+            </button>
           </div>
-
-          <button className={styles.buyPageButton} onClick={navigationHandler}>
-            Proceed to Buy
-          </button>
         </div>
       </div>
     );
@@ -144,7 +152,21 @@ const BuyBox = ({ box }) => {
         <div className={styles.outerBox}>
           <div className={styles.buyBox}>
             <button className={styles.backButton} onClick={navigationHandler}>
-              Back
+              <i
+                className="bi bi-chevron-left"
+                style={{
+                  background: "transparent",
+                  fontSize: "17px",
+                  color: "rgba(240, 248, 255, 0.75)",
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.color = "rgba(240, 248, 255, 0.9)";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.color = "rgba(240, 248, 255, 0.7)";
+                }}
+              />
+              <p className={styles.backButtonText}>&nbsp;Back</p>
             </button>
 
             <div className={styles.infoArea}>
