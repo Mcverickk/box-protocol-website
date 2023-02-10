@@ -52,7 +52,8 @@
 
 .priceInfo {
   padding: 0px 10px;
-  background: transparent;
+  /* background: rgba(0, 0, 0, 0.2); */
+  /* border-radius: 40px; */
 }
 
 .infoHeader {
@@ -97,7 +98,9 @@
   padding: 1px 30px;
   margin: 10px 10px;
   border: 1px solid #c6c6c69d;
-  background: transparent;
+  /* background: transparent; */
+  background: rgba(0, 0, 0, 0.1);
+
   border-radius: 40px;
   color: aliceblue;
   outline: none;
@@ -111,6 +114,7 @@
 }
 .inputBox:focus {
   border: 1px solid rgba(252, 115, 156, 0.646);
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .enterAmountText {
