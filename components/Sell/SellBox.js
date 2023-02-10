@@ -101,7 +101,7 @@ const SellBox = ({ box }) => {
         </div>
         <div className={styles.priceInfo}>
           <p className={styles.infoHeader}>Box Token Balance:&nbsp;</p>
-          <p className={styles.infoAmount}>{balance}</p>
+          <p className={styles.infoAmount2}>{balance}</p>
         </div>
       </div>
     );
@@ -116,16 +116,24 @@ const SellBox = ({ box }) => {
           <div className={styles.infoArea}>
             <form onSubmit={sellHandler} className={styles.inputForm}>
               <PriceInfo title="Sell Price:" />
-              <p className={styles.enterAmounttext}>Enter Token Amount:</p>
-              <input
-                className={styles.inputBox}
-                type="number"
-                value={amount}
-                onChange={(e) => setAmount(e.target.value)}
-              />
-              <button className={styles.buyButton} type="submit" value="Submit">
-                SELL
-              </button>
+              <p className={styles.enterAmountText}>Token Amount:</p>
+              <div className={styles.sellButtonLine}>
+                <input
+                  className={styles.inputBox}
+                  type="number"
+                  value={amount}
+                  onChange={(e) => setAmount(e.target.value)}
+                  placeholder=""
+                />
+
+                <button
+                  className={styles.buyButton}
+                  type="submit"
+                  value="Submit"
+                >
+                  SELL
+                </button>
+              </div>
             </form>
           </div>
         </div>
