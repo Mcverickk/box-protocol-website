@@ -20,7 +20,12 @@ const SingleTxBox = (props) => {
         <h3 className={styles.txBoxName}>Box {props.boxName}</h3>
       </div>
       <div className={styles.column5}>
-        <a href={props.etherscanTxLink} target="_blank" rel="noreferrer">
+        <a
+          href={props.etherscanTxLink}
+          className={styles.etherscanTxLink}
+          target="_blank"
+          rel="noreferrer"
+        >
           <button className={styles.txButton}>View in Polygonscan</button>
         </a>
       </div>

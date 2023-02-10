@@ -125,6 +125,10 @@
   background-color: #00000026;
 }
 
+.etherscanTxLink {
+  background-color: transparent;
+}
+
 .backButton {
   display: flex;
   width: 70px;
