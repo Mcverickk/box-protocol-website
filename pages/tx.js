@@ -31,6 +31,9 @@ export default function Tx() {
 
   const TxHistoryList = () => {
     try {
+      if (!address) {
+        return <p className={styles.loadingScreen}>Connect Wallet!</p>;
+      }
       let c = 0;
       const x = txData.data.items.map((tx) => {
         if (
@@ -87,14 +90,6 @@ export default function Tx() {
     }
   };
 
-  if (!address) {
-    return (
-      <div>
-        <Navbar activePage="Tx" />
-        <p className={styles.loadingScreen}>Connect Wallet!</p>
-      </div>
-    );
-  }
   if (loading)
     return (
       <div>
