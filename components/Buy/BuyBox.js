@@ -120,17 +120,12 @@ const BuyBox = ({ box }) => {
           <br />
           <h2 className={styles.boxName}>{box.boxName}</h2>
           <h2 className={styles.boxPrice}>{price}</h2>
-          {/* <InfoWithBorder title="Total Value Locked" value={tvl} /> */}
 
           <div className={styles.infoArea}>
             {box.tokenDistribution.map((t) => {
               return <Info title={t.token} value={t.value} key={t.token} />;
             })}
           </div>
-          {/* <div className={styles.infoArea2}>
-            <InfoWithBorder title="Price" value={price} />
-            <InfoWithBorder title="Total Value Locked" value={tvl} />
-          </div> */}
           <div className={styles.buyPageButtonDiv}>
             <button
               className={styles.buyPageButton}

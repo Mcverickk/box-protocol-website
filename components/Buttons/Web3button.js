@@ -103,7 +103,24 @@ const Web3Button = () => {
             className={styles.diconnectButtonHandler}
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
           >
-            {displayAddress}
+            {displayAddress}&nbsp;&nbsp;
+            {isDropdownOpen ? (
+              <i
+                class="bi bi-chevron-up"
+                style={{
+                  background: "transparent",
+                  color: "#2ba2d1f6",
+                }}
+              />
+            ) : (
+              <i
+                class="bi bi-chevron-down"
+                style={{
+                  background: "transparent",
+                  color: "#2ba2d1f6",
+                }}
+              />
+            )}
           </button>
           {isDropdownOpen && (
             <ul className={styles.dropdownContent}>
