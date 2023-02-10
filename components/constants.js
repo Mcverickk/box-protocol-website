@@ -385,7 +385,7 @@ const ABI = [
 const OFFICIAL_BOXES = [
   {
     boxId: 0,
-    boxName: "Box1",
+    boxName: "Metaverse",
     tokenDistribution: [
       { token: "WMATIC", value: "20%" },
       { token: "USDT", value: "30%" },
@@ -394,7 +394,7 @@ const OFFICIAL_BOXES = [
   },
   {
     boxId: 1,
-    boxName: "Box2",
+    boxName: "Stable Box",
     tokenDistribution: [
       { token: "USDT", value: "50%" },
       { token: "USDC", value: "50%" },

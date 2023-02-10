@@ -1,45 +1,45 @@
 .outerBox {
   margin: 30px 30px;
   padding: 3px;
-  background: linear-gradient(225deg, #344695, #30b9ed);
-  border-radius: 15px;
+  border-radius: 40px;
 }
 
 .box {
+  /* align-items: center; */
   width: 300px;
   height: 300px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-between;
-  box-shadow: 0px 0px 20px 0px #30b7ed48;
-  background: rgb(8, 8, 8);
-  border-radius: 15px;
+  background: linear-gradient(140deg, #2c4677 0%, #030c1d 100%);
+  box-shadow: inset 4px 4px 10px 0px hsla(0, 0%, 0%, 0.2),
+    0px 0px 30px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 40px;
+  backdrop-filter: blur(4px);
 }
 
 .buyBox {
+  /* align-items: center; */
   width: 300px;
   height: 300px;
   justify-content: space-evenly;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background: black;
-  border-radius: 15px;
+  background: linear-gradient(140deg, #2c4677 0%, #030c1d 100%);
+  box-shadow: inset 4px 4px 10px 0px hsla(0, 0%, 0%, 0.2),
+    0px 0px 30px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 40px;
+  backdrop-filter: blur(4px);
 }
 
 .boxName {
-  margin: 0px 15px;
+  margin: 0px 30px;
   margin-top: 20px;
-  font-size: 25px;
-  text-align: center;
-  /* background-image: linear-gradient(45deg, #67b26f, #4ca2cd); */
-  color: #30b9ed;
+  font-size: 30px;
+  font-weight: 500;
+  text-align: left;
+  color: rgba(240, 248, 255, 0.8);
   background: transparent;
-
-  /* background-image: linear-gradient(45deg, #4359bc, #37c6ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; */
 }
 
 .infoArea {
@@ -92,6 +92,7 @@
   color: aliceblue;
   outline: none;
   text-align: center;
+  background: transparent;
 }
 
 .inputBox::-webkit-outer-spin-button,
@@ -125,9 +126,9 @@
   border: none;
   padding: 5px 20px;
   border-radius: 10px;
-  width: 80%;
+  width: 50%;
   color: rgba(240, 248, 255, 0.747);
-  background-color: #1c1c1c;
+  background-color: #000000;
 }
 
 .buyPageButton:hover {
