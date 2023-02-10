@@ -35,7 +35,7 @@
   border-radius: 30px;
   border: none;
   border: 1px solid #2ba2d1f6;
-  /* background: linear-gradient(45deg, #3c51ae, #30b9ed); */
+  background: transparent;
 }
 
 .diconnectButtonHandler:hover {
@@ -56,7 +56,7 @@
   list-style-type: none;
   display: none;
   position: absolute;
-  background-color: hsla(240, 10%, 25%, 0.25);
+  background-color: hsla(0, 0%, 0%, 0.3);
   backdrop-filter: blur(4px);
   z-index: 1;
   width: 250px;

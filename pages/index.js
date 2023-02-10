@@ -6,7 +6,7 @@ import GlowingButton from "@/components/Buttons/GlowingButton";
 export default function Home() {
   return (
     <>
-      <main className={styles.main}>
+      <div className={styles.background}>
         <HomeNavbar />
         <div className={styles.body}>
           <div className={styles.textArea}>
@@ -33,7 +33,7 @@ export default function Home() {
             Copyright &copy; 2023 Box Protocol
           </p>
         </footer>
-      </main>
+      </div>
     </>
   );
 }

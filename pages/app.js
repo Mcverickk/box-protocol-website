@@ -94,11 +94,11 @@ export default function App() {
 
   return (
     <>
-      <main>
+      <div className={styles.background}>
         <Navbar activePage="App" />
         {appArea}
         {isModalOpen && modal}
-      </main>
+      </div>
     </>
   );
 }

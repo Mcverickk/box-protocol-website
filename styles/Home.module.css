@@ -5,6 +5,11 @@
   justify-content: space-around;
 }
 
+.background {
+  background: radial-gradient(circle at top center, #0f1939 0%, #101014 100%);
+  height: 100vh;
+}
+
 .textArea {
   /* background-color: aqua; */
 }
