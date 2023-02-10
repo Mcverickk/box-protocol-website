@@ -108,7 +108,7 @@ export default function Tx() {
 
   return (
     <>
-      <main className={styles.main}>
+      <div className={styles.background}>
         <Navbar activePage="Tx" />
         <div className={styles.body}>
           <button className={styles.backButton}>
@@ -133,7 +133,7 @@ export default function Tx() {
           <h3 className={styles.txHistoryTitle}>Transaction History</h3>
           <TxHistoryList />
         </div>
-      </main>
+      </div>
     </>
   );
 }
