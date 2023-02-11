@@ -48,13 +48,12 @@
 }
 
 .infoArea {
-  padding: 5px 15px;
+  padding: 0px 15px;
   color: aliceblue;
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
-  background-color: transparent;
-  margin-bottom: 10px;
+  background: transparent;
 }
 
 .infoArea2 {
@@ -91,20 +90,20 @@
 }
 
 .priceInfo2 {
-  padding: 10px 10px;
-  margin: 0px 15px;
-  display: flex;
-  flex-direction: row;
-  align-items: baseline;
-  background: transparent;
+  margin: 15px;
+  margin-bottom: 30px;
 }
 .infoHeader2 {
   font-size: 12px;
-  background-color: transparent;
+  background: transparent;
+  color: rgba(240, 248, 255, 0.8);
 }
 
 .infoAmount2 {
-  background-color: transparent;
+  font-size: 25px;
+  font-weight: 500;
+  background: transparent;
+  color: rgba(44, 209, 93, 0.8);
 }
 
 .infoWithBorder {
@@ -118,22 +117,23 @@
 .inputForm {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
   background: transparent;
 }
 
 .inputBox {
-  padding: 5px 10px;
+  width: 40%;
+  height: 45%;
+  padding: 1px 30px;
   margin: 10px 10px;
-
   border: 1px solid #c6c6c69d;
+  /* background: transparent; */
+  background: rgba(0, 0, 0, 0.1);
 
-  border-radius: 10px;
+  border-radius: 40px;
   color: aliceblue;
   outline: none;
   text-align: center;
-  background: transparent;
 }
 
 .inputBox::-webkit-outer-spin-button,
@@ -142,38 +142,81 @@
   margin: 0;
 }
 .inputBox:focus {
-  border: 1px solid #436dbc;
+  border: 1px solid rgba(115, 204, 252, 0.646);
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .enterAmounttext {
+  padding-left: 2px;
   margin: 0px 15px;
   font-size: 12px;
   background: transparent;
+  color: rgba(240, 248, 255, 0.7);
 }
 
 .buyButton {
-  font-weight: 500;
-  margin: 20px;
+  margin: 15px;
   margin-top: 10px;
   cursor: pointer;
-  border: none;
-  padding: 5px;
-  border-radius: 10px;
-  width: 80%;
-  color: #101014;
-  background-image: linear-gradient(225deg, #4359bc, #37c6ff);
+  padding: 10px 30px;
+  border-radius: 40px;
+  width: 50%;
+  color: rgba(240, 248, 255, 0.747);
+  display: inline-block;
+  transition: all 0.1s ease-in;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  background: #101014;
+  border: 0px solid #101014;
+  box-shadow: 2px 2px 12px #2c377777, -6px -6px 12px #13101497;
+  font-weight: 500;
 }
 
 .buyButton:hover {
-  background-image: linear-gradient(225deg, #344695, #30b9ed);
+  border: none;
+}
+
+.buyButton:hover:before {
+  top: -35%;
+  background-color: #2c4677;
+  transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+.buyButton:hover:after {
+  top: -45%;
+  background-color: #2c4677;
+  transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+.buyButton:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) scaleY(1) scaleX(1.25);
+  top: 100%;
+  width: 140%;
+  height: 180%;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  display: block;
+  transition: all 0.4s 0.01s cubic-bezier(0.55, 0, 0.1, 1);
+  z-index: -1;
+}
+
+.buyButton:after {
+  background-color: #2c4677;
+  transition: all 0.4s 0.01s cubic-bezier(0.55, 0, 0.1, 1);
+  z-index: -1;
 }
 
 .backButton {
+  padding-top: 20px;
   display: flex;
   width: 20%;
   align-items: center;
   margin: 10px 25px;
-  margin-bottom: 0px;
+  margin-bottom: 20px;
   cursor: pointer;
   border: none;
   color: rgba(240, 248, 255, 0.7);
@@ -192,7 +235,7 @@
 
 .buyPageButton {
   margin: 25px;
-  margin-top: 10px;
+  margin-top: 25px;
   cursor: pointer;
   padding: 10px 30px;
   border-radius: 40px;
@@ -243,4 +286,11 @@
   background-color: #2c4677;
   transition: all 0.4s 0.01s cubic-bezier(0.55, 0, 0.1, 1);
   z-index: -1;
+}
+
+.sellButtonLine {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
 }

@@ -104,15 +104,6 @@ const BuyBox = ({ box }) => {
     );
   };
 
-  const InfoWithBorder = (props) => {
-    return (
-      <div className={styles.infoWithBorder}>
-        <p className={styles.infoHeader}>{props.title}</p>
-        <p className={styles.infoAmount}>{props.value}</p>
-      </div>
-    );
-  };
-
   const Box = ({ box }) => {
     return (
       <div className={styles.outerBox}>
@@ -168,19 +159,23 @@ const BuyBox = ({ box }) => {
               <form onSubmit={buyHandler} className={styles.inputForm}>
                 <PriceInfo title="Buy Price:" value={price} />
                 <p className={styles.enterAmounttext}>Enter Amount in MATIC:</p>
-                <input
-                  className={styles.inputBox}
-                  type="number"
-                  value={amount}
-                  onChange={(e) => setAmount(e.target.value)}
-                />
-                <button
-                  className={styles.buyButton}
-                  type="submit"
-                  value="Submit"
-                >
-                  BUY
-                </button>
+                <div className={styles.sellButtonLine}>
+                  <input
+                    className={styles.inputBox}
+                    type="number"
+                    value={amount}
+                    onChange={(e) => setAmount(e.target.value)}
+                    placeholder=""
+                  />
+
+                  <button
+                    className={styles.buyButton}
+                    type="submit"
+                    value="Submit"
+                  >
+                    BUY
+                  </button>
+                </div>
               </form>
             </div>
           </div>
