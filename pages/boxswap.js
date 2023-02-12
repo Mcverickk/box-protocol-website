@@ -2,11 +2,19 @@ import styles from "@/styles/BoxSwap.module.css";
 import BBstyles from "@/styles/BuyBox.module.css";
 import SBstyles from "@/styles/SellBox.module.css";
 import Navbar from "@/components/Navbar/AppNavbar";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { OFFICIAL_BOXES } from "@/components/constants";
 
 export default function BoxSwap() {
   const [amount, setAmount] = useState(0);
+  const [buyPrice, setBuyPrice] = useState("Loading...");
+  const [buyBalance, setBuyBalance] = useState("Loading...");
+  const [sellPrice, setSellPrice] = useState("Loading...");
+  const [sellBalance, setSellBalance] = useState("Loading...");
+  const [buyBoxId, setBuyBoxId] = useState(1);
+  const [sellBoxId, setSellBoxId] = useState(0);
+  const [isBuyDropdownOpen, setIsBuyDropdownOpen] = useState(false);
+  const [isSellDropdownOpen, setIsSellDropdownOpen] = useState(false);
 
   const BlackButton = () => {
     return <button className={BBstyles.buyButton}>BUY</button>;
@@ -39,15 +47,74 @@ export default function BoxSwap() {
     );
   };
 
-  const BoxInfo = ({ boxType, box }) => {
+  const BoxInfo = ({
+    boxType,
+    box,
+    price,
+    balance,
+    setIsDropdownOpen,
+    isDropdownOpen,
+    setBoxId,
+  }) => {
     return (
       <>
-        <h2 className={styles.boxType}>{boxType}</h2>
-        <h2 className={styles.boxName}>{box.boxName}</h2>
+        <h2 className={styles.boxType}></h2>
+
+        <div className={styles.dropdown}>
+          <button
+            className={styles.boxName}
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+          >
+            {box.boxName}&nbsp;
+            {isDropdownOpen ? (
+              <i
+                class="bi bi-chevron-up"
+                style={{
+                  background: "transparent",
+                  color: "rgba(240, 248, 255, 0.9)",
+                }}
+              />
+            ) : (
+              <i
+                class="bi bi-chevron-down"
+                style={{
+                  background: "transparent",
+                  color: "rgba(240, 248, 255, 0.9)",
+                }}
+              />
+            )}
+          </button>
+          {isDropdownOpen && (
+            <div className={styles.dropdownContentBox}>
+              <ul className={styles.dropdownContent}>
+                {OFFICIAL_BOXES.map((box) => {
+                  return (
+                    <li>
+                      <button
+                        className={styles.dropdownContentItems}
+                        onClick={() => {
+                          setBoxId(box.boxId);
+                          setIsDropdownOpen(!isDropdownOpen);
+                        }}
+                      >
+                        <h3 className={styles.dropdownBoxName}>
+                          {box.boxName}
+                        </h3>
+                        <p
+                          className={styles.dropdownBoxId}
+                        >{`Box Id: ${box.boxId}`}</p>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          )}
+        </div>
         <div className={styles.infoArea}>
           <div className={styles.infoBox}>
-            <PriceInfo title={`${boxType} Price:`} value="$1.2" />
-            <PriceInfo2 title="Box Token Balance:" value="50.6" />
+            <PriceInfo title={`${boxType} Price:`} value={price} />
+            <PriceInfo2 title="Box Token Balance:" value={balance} />
           </div>
           {box.tokenDistribution.map((t) => {
             return <Info title={t.token} value={t.value} key={t.token} />;
@@ -61,7 +128,15 @@ export default function BoxSwap() {
     return (
       <div className={BBstyles.outerBox}>
         <div className={BBstyles.buyBox}>
-          <BoxInfo boxType="Buy" box={OFFICIAL_BOXES[0]} />
+          <BoxInfo
+            boxType="Buy"
+            box={OFFICIAL_BOXES[buyBoxId]}
+            price="$4.1"
+            balance="3.54"
+            setIsDropdownOpen={setIsBuyDropdownOpen}
+            isDropdownOpen={isBuyDropdownOpen}
+            setBoxId={setBuyBoxId}
+          />
         </div>
       </div>
     );
@@ -71,7 +146,15 @@ export default function BoxSwap() {
     return (
       <div className={SBstyles.outerBox}>
         <div className={SBstyles.buyBox}>
-          <BoxInfo boxType="Sell" box={OFFICIAL_BOXES[1]} />
+          <BoxInfo
+            boxType="Sell"
+            box={OFFICIAL_BOXES[sellBoxId]}
+            price="$4.1"
+            balance="3.54"
+            setIsDropdownOpen={setIsSellDropdownOpen}
+            isDropdownOpen={isSellDropdownOpen}
+            setBoxId={setSellBoxId}
+          />
         </div>
       </div>
     );
