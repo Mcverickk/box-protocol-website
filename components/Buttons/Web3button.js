@@ -144,10 +144,15 @@ const Web3Button = () => {
                 </div>
               </li>
               <li className={styles.dropdownContentItems}>
-                <button className={styles.dropdownOptionsButton}>
-                  <i class="bi bi-wallet2" style={iconStyle} />
-                  &nbsp;&nbsp;&nbsp;&nbsp;My Investments
-                </button>
+                <Link
+                  href="/investments"
+                  className={styles.dropdownOptionsLink}
+                >
+                  <button className={styles.dropdownOptionsButton}>
+                    <i class="bi bi-wallet2" style={iconStyle} />
+                    &nbsp;&nbsp;&nbsp;&nbsp;My Investments
+                  </button>
+                </Link>
               </li>
               <li className={styles.dropdownContentItems}>
                 <Link href="/tx" className={styles.dropdownOptionsLink}>
