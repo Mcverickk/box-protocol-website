@@ -12,7 +12,7 @@ export default function CreateBox() {
   useEffect(() => {
     let tokenColumn = [];
     for (let i = 0; i < n; i++) {
-      tokenColumn.push(<TokenRow />);
+      tokenColumn.push(<TokenRow id={i} />);
     }
     setAddTokenArea(tokenColumn);
   }, [n]);
@@ -64,6 +64,13 @@ export default function CreateBox() {
                   </button>
                 )}
               </div>
+              <button
+                className={styles.createBoxButton}
+                type="submit"
+                value="Submit"
+              >
+                Create Box
+              </button>
             </form>
           </div>
         </div>

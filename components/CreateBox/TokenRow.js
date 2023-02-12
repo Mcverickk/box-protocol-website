@@ -2,8 +2,9 @@ import styles from "@/styles/CreateBox.module.css";
 import { useState } from "react";
 import { SUPPORTED_TOKENS } from "../constants";
 
-const TokenRow = () => {
+const TokenRow = ({ id }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [selectedToken, setSelectedToken] = useState("MATIC");
 
   return (
     <div className={styles.addTokenRow}>
@@ -12,7 +13,7 @@ const TokenRow = () => {
         type="number"
         name="Token Percentage"
         className={styles.input}
-        placeholder="Token Percentage"
+        placeholder="Token % "
       />
       <div className={styles.dropdown}>
         <button
@@ -22,7 +23,7 @@ const TokenRow = () => {
             setIsDropdownOpen(!isDropdownOpen);
           }}
         >
-          ETH{" "}
+          {selectedToken}{" "}
           <i
             class="bi bi-chevron-down"
             style={{
@@ -35,9 +36,16 @@ const TokenRow = () => {
           <ul className={styles.dropdownContent}>
             {SUPPORTED_TOKENS.map((token) => {
               return (
-                <li className={styles.dropdownContentItems}>
-                  <h3 className={styles.tokenName}>{token}</h3>
-                </li>
+                <button
+                  className={styles.tokenName}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setSelectedToken(token);
+                    setIsDropdownOpen(!isDropdownOpen);
+                  }}
+                >
+                  <li className={styles.dropdownContentItems}>{token}</li>
+                </button>
               );
             })}
           </ul>
