@@ -402,7 +402,10 @@ const OFFICIAL_BOXES = [
   },
 ];
 
+const SUPPORTED_TOKENS = ["USDT", "WMATIC", "USDC", "MATIC"];
+
 export {
+  SUPPORTED_TOKENS,
   CHIRAG,
   TARUN,
   SWAYAM,
