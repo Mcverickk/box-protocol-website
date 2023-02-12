@@ -90,8 +90,9 @@
 }
 
 .priceInfo2 {
-  margin: 15px;
-  margin-bottom: 30px;
+  margin: 10px 10px;
+  margin-right: 20px;
+  margin-bottom: 25px;
 }
 .infoHeader2 {
   font-size: 12px;
@@ -104,6 +105,13 @@
   font-weight: 500;
   background: transparent;
   color: rgba(44, 209, 93, 0.8);
+}
+
+.infoAmount3 {
+  font-size: 25px;
+  font-weight: 500;
+  background: transparent;
+  color: rgba(240, 248, 255, 0.8);
 }
 
 .infoWithBorder {
@@ -293,4 +301,13 @@
   flex-direction: row;
   justify-content: center;
   align-items: baseline;
+}
+
+.infoBox {
+  /* margin-top: 5px; */
+  /* margin-bottom: 30px; */
+  padding: 5px;
+  background: transparent;
+  display: flex;
+  flex-direction: row;
 }

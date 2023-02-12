@@ -3,6 +3,7 @@ import { useState, useContext, useEffect } from "react";
 import { ethers } from "ethers";
 import { ADDRESS, ABI } from "../constants";
 import { TxModalContext } from "../Modals/TxModalContext";
+import { useAccount } from "wagmi";
 import {
   TransactionCompleted,
   TransactionInProcess,
@@ -13,8 +14,10 @@ const BuyBox = ({ box }) => {
   const [showBuy, setShowBuy] = useState(false);
   const [amount, setAmount] = useState("");
   const [price, setPrice] = useState("Fetching...");
+  const [balance, setBalance] = useState("Fetching...");
   const [tvl, setTvl] = useState("Fetching...");
   const { setModal, setModalOpen } = useContext(TxModalContext);
+  const { address } = useAccount();
 
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
@@ -26,6 +29,7 @@ const BuyBox = ({ box }) => {
 
   useEffect(() => {
     getData();
+    getBalance();
   }, []);
 
   const buyHandler = async (event) => {
@@ -86,6 +90,21 @@ const BuyBox = ({ box }) => {
     }
   };
 
+  const getBalance = async () => {
+    try {
+      if (address) {
+        const result = await contract.balanceOf(address, box.boxId);
+        const bal = (result / 100).toFixed(2).toString();
+        setBalance(bal);
+      } else {
+        console.log("address undefined");
+      }
+    } catch (e) {
+      console.log(e);
+      console.log("Error: getBalance >> BuyBox");
+    }
+  };
+
   const Info = (props) => {
     return (
       <div className={styles.info}>
@@ -100,6 +119,15 @@ const BuyBox = ({ box }) => {
       <div className={styles.priceInfo2}>
         <p className={styles.infoHeader2}>{props.title}&nbsp;</p>
         <p className={styles.infoAmount2}>{props.value}</p>
+      </div>
+    );
+  };
+
+  const PriceInfo2 = (props) => {
+    return (
+      <div className={styles.priceInfo2}>
+        <p className={styles.infoHeader2}>{props.title}&nbsp;</p>
+        <p className={styles.infoAmount3}>{props.value}</p>
       </div>
     );
   };
@@ -157,7 +185,10 @@ const BuyBox = ({ box }) => {
 
             <div className={styles.infoArea}>
               <form onSubmit={buyHandler} className={styles.inputForm}>
-                <PriceInfo title="Buy Price:" value={price} />
+                <div className={styles.infoBox}>
+                  <PriceInfo title="Buy Price:" value={price} />
+                  <PriceInfo2 title="Box Token Balance:" value={balance} />
+                </div>
                 <p className={styles.enterAmounttext}>Enter Amount in MATIC:</p>
                 <div className={styles.sellButtonLine}>
                   <input
