@@ -195,6 +195,10 @@ export default function BoxSwap() {
     );
   };
 
+  const swapHandler = () => {
+    alert("Swap");
+  };
+
   return (
     <>
       <main className={styles.background}>
@@ -203,7 +207,7 @@ export default function BoxSwap() {
           <SellBox />
           <div className={styles.betweenBoxes}>
             <div className={styles.root}>
-              <button className={styles.glowingBtn}>
+              <button className={styles.glowingBtn} onClick={swapHandler}>
                 <span className={styles.glowingTxt}>
                   Swap&nbsp;
                   <i
