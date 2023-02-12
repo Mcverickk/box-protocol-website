@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "@/styles/BuySellTab.module.css";
-import BuyContent from "../Buy/BuyContent";
-import SellContent from "../Sell/SellContent";
+import BuyContent from "./Buy/BuyContent";
+import SellContent from "./Sell/SellContent";
 
 function BuySellTab({ buyBoxes, sellBoxes }) {
   const [activeTab, setActiveTab] = useState(0);

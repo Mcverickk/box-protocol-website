@@ -1,14 +1,14 @@
 import styles from "@/styles/SellBox.module.css";
 import { useState, useContext, useEffect } from "react";
 import { ethers } from "ethers";
-import { ADDRESS, ABI } from "../constants";
+import { ADDRESS, ABI } from "../../constants";
 import { useAccount } from "wagmi";
-import { TxModalContext } from "../Modals/TxModalContext";
+import { TxModalContext } from "../../Modals/TxModalContext";
 import {
   TransactionCompleted,
   TransactionInProcess,
   TransactionFailed,
-} from "../Modals/TransactionModal";
+} from "../../Modals/TransactionModal";
 
 const SellBox = ({ box }) => {
   const [amount, setAmount] = useState("");
