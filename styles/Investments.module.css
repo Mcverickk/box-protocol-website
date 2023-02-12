@@ -2,3 +2,36 @@
   background: radial-gradient(circle at top center, #0f1939 0%, #101014 100%);
   min-height: 100vh;
 }
+
+.body {
+  padding: 50px 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+.backButton {
+  display: flex;
+  width: 70px;
+  border: none;
+  background-color: transparent;
+}
+
+.backButtonText {
+  cursor: pointer;
+  color: rgba(240, 248, 255, 0.75);
+  font-size: 17px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.backButtonText:hover {
+  color: rgba(240, 248, 255, 0.9);
+}
+
+.investmentsTitle {
+  text-align: center;
+  margin-bottom: 50px;
+  font-weight: 500;
+  font-size: 25px;
+  color: rgba(240, 248, 255, 0.9);
+}
