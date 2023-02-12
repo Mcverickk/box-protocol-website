@@ -3,10 +3,10 @@ import BBstyles from "@/styles/BuyBox.module.css";
 import SBstyles from "@/styles/SellBox.module.css";
 import Navbar from "@/components/Navbar/AppNavbar";
 import { useState, useEffect, useRef } from "react";
-import { OFFICIAL_BOXES } from "@/components/constants";
+import { OFFICIAL_BOXES, ADDRESS, ABI } from "@/components/constants";
+import { useAccount, useProvider, useSigner, useContract } from "wagmi";
 
 export default function BoxSwap() {
-  const [amount, setAmount] = useState(0);
   const [buyPrice, setBuyPrice] = useState("Loading...");
   const [buyBalance, setBuyBalance] = useState("Loading...");
   const [sellPrice, setSellPrice] = useState("Loading...");
@@ -16,8 +16,39 @@ export default function BoxSwap() {
   const [isBuyDropdownOpen, setIsBuyDropdownOpen] = useState(false);
   const [isSellDropdownOpen, setIsSellDropdownOpen] = useState(false);
 
-  const BlackButton = () => {
-    return <button className={BBstyles.buyButton}>BUY</button>;
+  const { data: signer, isError, isLoading } = useSigner();
+  const contract = useContract({
+    address: ADDRESS,
+    abi: ABI,
+    signerOrProvider: signer,
+  });
+
+  const { address } = useAccount();
+
+  const getBalance = async (boxId, setBalance) => {
+    try {
+      if (address) {
+        const result = await contract.balanceOf(address, boxId);
+        const bal = (result / 100).toFixed(2).toString();
+        setBalance(bal);
+      } else {
+        console.log("address undefined");
+      }
+    } catch (e) {
+      console.log(e);
+      console.log("Error: getBalance >> BoxSwap");
+    }
+  };
+
+  const getPrice = async (boxId, setPrice) => {
+    try {
+      const priceTemp = await contract.getBoxTokenPrice(boxId);
+      const price = priceTemp / 10 ** 18;
+      setPrice("$" + price.toFixed(2).toString());
+    } catch (e) {
+      console.log(e);
+      console.log("Error: getPrice >> BoxSwap");
+    }
   };
 
   const PriceInfo = (props) => {
@@ -125,14 +156,16 @@ export default function BoxSwap() {
   };
 
   const BuyBox = () => {
+    getBalance(buyBoxId, setBuyBalance);
+    getPrice(buyBoxId, setBuyPrice);
     return (
       <div className={BBstyles.outerBox}>
         <div className={BBstyles.buyBox}>
           <BoxInfo
             boxType="Buy"
             box={OFFICIAL_BOXES[buyBoxId]}
-            price="$4.1"
-            balance="3.54"
+            price={buyPrice}
+            balance={buyBalance}
             setIsDropdownOpen={setIsBuyDropdownOpen}
             isDropdownOpen={isBuyDropdownOpen}
             setBoxId={setBuyBoxId}
@@ -143,14 +176,16 @@ export default function BoxSwap() {
   };
 
   const SellBox = () => {
+    getBalance(sellBoxId, setSellBalance);
+    getPrice(sellBoxId, setSellPrice);
     return (
       <div className={SBstyles.outerBox}>
         <div className={SBstyles.buyBox}>
           <BoxInfo
             boxType="Sell"
             box={OFFICIAL_BOXES[sellBoxId]}
-            price="$4.1"
-            balance="3.54"
+            price={sellPrice}
+            balance={sellBalance}
             setIsDropdownOpen={setIsSellDropdownOpen}
             isDropdownOpen={isSellDropdownOpen}
             setBoxId={setSellBoxId}
