@@ -15,7 +15,9 @@ const BuyBox = ({ box }) => {
   const [amount, setAmount] = useState("");
   const [price, setPrice] = useState("Fetching...");
   const [balance, setBalance] = useState("Fetching...");
-  const [tvl, setTvl] = useState("Fetching...");
+  const [tvl, setTvl] = useState("");
+  const [TVL_TEXT, setTvlText] = useState("");
+
   const { setModal, setModalOpen } = useContext(TxModalContext);
   const { address } = useAccount();
 
@@ -82,8 +84,9 @@ const BuyBox = ({ box }) => {
       const tvlTemp = await contract.getBoxTVL(box.boxId);
       const price = priceTemp / 10 ** 18;
       const tvl = tvlTemp / 10 ** 18;
-      setPrice("$" + price.toFixed(2).toString());
-      setTvl("$" + tvl.toFixed(2).toString());
+      await setPrice("$" + price.toFixed(2).toString());
+      await setTvl("$" + tvl.toFixed(2).toString());
+      await setTvlText("TVL");
     } catch (e) {
       console.log(e);
       console.log("Error: getData >> BuyBox");
@@ -141,8 +144,12 @@ const BuyBox = ({ box }) => {
           <div className={styles.boxData}>
             <h2 className={styles.boxPrice}>{price}</h2>
 
-            <h2 className={styles.boxTVL}>{tvl}</h2>
-            <h2 className={styles.boxTVL2}>TVL</h2>
+            {tvl !== "Fetching..." && (
+              <>
+                <h2 className={styles.boxTVL}>{tvl}</h2>
+                <h2 className={styles.boxTVL2}>{TVL_TEXT}</h2>
+              </>
+            )}
           </div>
 
           <div className={styles.infoArea}>

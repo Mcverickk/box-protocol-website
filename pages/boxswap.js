@@ -184,7 +184,7 @@ export default function BoxSwap() {
               <ul className={styles.dropdownContent}>
                 {OFFICIAL_BOXES.map((box) => {
                   return (
-                    <li>
+                    <li key={box.boxId}>
                       <button
                         className={styles.dropdownContentItems}
                         onClick={() => {

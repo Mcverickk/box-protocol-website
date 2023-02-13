@@ -71,6 +71,7 @@ export default function Tx() {
             c++;
             return (
               <SingleTxBox
+                key={c}
                 date={normalDate}
                 txType={txType}
                 amount={amount}
@@ -82,7 +83,11 @@ export default function Tx() {
         }
       });
       if (c === 0) {
-        return <p className={styles.noTransactions}>No transactions</p>;
+        return (
+          <p className={styles.noTransactions} key={c}>
+            No transactions
+          </p>
+        );
       }
       return x;
     } catch (error) {

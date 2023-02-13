@@ -143,7 +143,7 @@ const Web3Button = () => {
                   <CurrentNetworkText />
                 </div>
               </li>
-              <li className={styles.dropdownContentItems}>
+              {/* <li className={styles.dropdownContentItems}>
                 <Link
                   href="/investments"
                   className={styles.dropdownOptionsLink}
@@ -153,7 +153,7 @@ const Web3Button = () => {
                     &nbsp;&nbsp;&nbsp;&nbsp;My Investments
                   </button>
                 </Link>
-              </li>
+              </li> */}
               <li className={styles.dropdownContentItems}>
                 <Link href="/tx" className={styles.dropdownOptionsLink}>
                   <button className={styles.dropdownOptionsButton}>

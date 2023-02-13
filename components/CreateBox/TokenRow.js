@@ -38,6 +38,7 @@ const TokenRow = ({ id }) => {
               return (
                 <button
                   className={styles.tokenName}
+                  key={token}
                   onClick={(e) => {
                     e.preventDefault();
                     setSelectedToken(token);
