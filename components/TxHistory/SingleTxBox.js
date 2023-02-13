@@ -8,7 +8,7 @@ const SingleTxBox = (props) => {
       </div>
       <div className={styles.column2}>
         <h4
-          className={props.txType === "Buy" ? styles.buyType : styles.sellType}
+          className={props.txType === "Sell" ? styles.sellType : styles.buyType}
         >
           {props.txType}
         </h4>

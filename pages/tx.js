@@ -52,7 +52,7 @@ export default function Tx() {
             day: "numeric",
           };
           const normalDate = date.toLocaleDateString("en-US", options);
-          tx.log_events.map((e) => {
+          const TxBoxes = tx.log_events.map((e) => {
             if (e.decoded && e.decoded.name === "TransferSingle") {
               if (
                 ethers.utils.getAddress(e.decoded.params[2].value) ===
@@ -64,24 +64,25 @@ export default function Tx() {
               }
               boxId = e.decoded.params[3].value;
               amount = (e.decoded.params[4].value / 10 ** 2).toFixed(2);
+              if (txType === "Buy" || txType === "Sell") {
+                c++;
+                return (
+                  <SingleTxBox
+                    key={c}
+                    date={normalDate}
+                    txType={txType}
+                    amount={amount}
+                    boxName={boxId}
+                    etherscanTxLink={link}
+                  />
+                );
+              }
             }
           });
-
-          if (txType === "Buy" || txType === "Sell") {
-            c++;
-            return (
-              <SingleTxBox
-                key={c}
-                date={normalDate}
-                txType={txType}
-                amount={amount}
-                boxName={boxId}
-                etherscanTxLink={link}
-              />
-            );
-          }
+          return TxBoxes;
         }
       });
+
       if (c === 0) {
         return (
           <p className={styles.noTransactions} key={c}>
