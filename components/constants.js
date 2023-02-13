@@ -777,24 +777,43 @@ const ABI = [
 const OFFICIAL_BOXES = [
   {
     boxId: 0,
-    boxName: "Metaverse",
+    boxName: "Blue Chip",
     tokenDistribution: [
-      { token: "WMATIC", value: "20%" },
-      { token: "USDT", value: "30%" },
-      { token: "USDC", value: "50%" },
+      { token: "BTC", value: "40%" },
+      { token: "ETH", value: "30%" },
+      { token: "MATIC", value: "20%" },
+      { token: "LINK", value: "10%" },
     ],
   },
   {
     boxId: 1,
-    boxName: "Stable Box",
+    boxName: "Metaverse",
     tokenDistribution: [
-      { token: "USDT", value: "50%" },
-      { token: "USDC", value: "50%" },
+      { token: "APE", value: "40%" },
+      { token: "MANA", value: "30%" },
+      { token: "SAND", value: "30%" },
+    ],
+  },
+  {
+    boxId: 2,
+    boxName: "Stable Coins",
+    tokenDistribution: [
+      { token: "USDC", value: "40%" },
+      { token: "USDT", value: "30%" },
+      { token: "DAI", value: "30%" },
     ],
   },
 ];
 
-const SUPPORTED_TOKENS = ["USDT", "WMATIC", "USDC", "MATIC"];
+const SUPPORTED_TOKENS = [
+  "MATIC",
+  "USDT",
+  "USDC",
+  "MANA",
+  "SAND",
+  "DAI",
+  "APE",
+];
 
 export {
   SUPPORTED_TOKENS,

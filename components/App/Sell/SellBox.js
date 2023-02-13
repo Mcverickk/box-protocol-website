@@ -27,7 +27,7 @@ const SellBox = ({ box }) => {
       try {
         const sellAmount = (amount * 100).toFixed(0);
         const tx = await contract.sell(box.boxId, sellAmount);
-        const etherscanLink = `https://goerli.etherscan.io/tx/${tx.hash}`;
+        const etherscanLink = `https://polygonscan.com/tx/${tx.hash}`;
         setModal(
           <TransactionInProcess
             etherscanTxLink={etherscanLink}

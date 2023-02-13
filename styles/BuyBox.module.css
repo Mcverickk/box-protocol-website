@@ -47,6 +47,29 @@
   background: transparent;
 }
 
+.boxTVL {
+  margin: 0px 30px;
+  margin-right: 0px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: left;
+  color: rgba(240, 248, 255, 0.75);
+  background: transparent;
+}
+.boxTVL2 {
+  margin: 0px 30px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: left;
+  color: rgba(240, 248, 255, 0.75);
+  background: transparent;
+  justify-content: center;
+  align-items: baseline;
+}
+
 .infoArea {
   padding: 0px 15px;
   color: aliceblue;
@@ -312,4 +335,10 @@
   background: transparent;
   display: flex;
   flex-direction: row;
+}
+
+.boxData {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
 }

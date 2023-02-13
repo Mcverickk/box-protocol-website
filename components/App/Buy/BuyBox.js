@@ -138,7 +138,12 @@ const BuyBox = ({ box }) => {
         <div className={styles.box}>
           <br />
           <h2 className={styles.boxName}>{box.boxName}</h2>
-          <h2 className={styles.boxPrice}>{price}</h2>
+          <div className={styles.boxData}>
+            <h2 className={styles.boxPrice}>{price}</h2>
+
+            <h2 className={styles.boxTVL}>{tvl}</h2>
+            <h2 className={styles.boxTVL2}>TVL</h2>
+          </div>
 
           <div className={styles.infoArea}>
             {box.tokenDistribution.map((t) => {
