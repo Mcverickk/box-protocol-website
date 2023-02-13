@@ -1,4 +1,5 @@
 import styles from "@/styles/Modal.module.css";
+import { OFFICIAL_BOXES } from "../constants";
 
 const crossButtonX = (
   <i
@@ -56,6 +57,8 @@ const TransactionCompleted = ({
   amount,
   type,
   backHandler,
+  sellBoxId,
+  buyBoxId,
 }) => {
   return (
     <div className={styles.modalOverlay}>
@@ -76,6 +79,8 @@ const TransactionCompleted = ({
           <p className={styles.modalText}>
             {type === "buy" && `Box Tokens worth ${amount} MATIC bought`}
             {type === "sell" && `${amount} Box Tokens sold`}
+            {type === "swap" &&
+              `${OFFICIAL_BOXES[sellBoxId].boxName} Box swapped with ${OFFICIAL_BOXES[buyBoxId].boxName} Box`}
           </p>
           <a
             className={styles.etherscanLink}
@@ -84,7 +89,7 @@ const TransactionCompleted = ({
             rel="noreferrer"
           >
             <button className={styles.etherscanButton}>
-              View on Etherscan
+              View on Polygonscan
             </button>
           </a>
         </div>

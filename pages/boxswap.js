@@ -1,10 +1,31 @@
+import dynamic from "next/dynamic";
 import styles from "@/styles/BoxSwap.module.css";
 import BBstyles from "@/styles/BuyBox.module.css";
 import SBstyles from "@/styles/SellBox.module.css";
 import Navbar from "@/components/Navbar/AppNavbar";
-import { useState, useEffect, useRef } from "react";
-import { OFFICIAL_BOXES, ADDRESS, ABI } from "@/components/constants";
-import { useAccount, useProvider, useSigner, useContract } from "wagmi";
+import { useState, useEffect, useRef, useContext } from "react";
+import {
+  OFFICIAL_BOXES,
+  ADDRESS,
+  ABI,
+  NETWORK_ID,
+} from "@/components/constants";
+import { useAccount, useNetwork, useSigner, useContract } from "wagmi";
+import {
+  TransactionCompleted,
+  TransactionInProcess,
+  TransactionFailed,
+} from "@/components/Modals/TransactionModal";
+import {
+  SwitchNetworkButton2,
+  SwitchNetworkButton,
+} from "@/components/Buttons/SwitchNetworkButton";
+const Web3Button = dynamic(
+  () => {
+    return import("@/components/Buttons/Web3button.js");
+  },
+  { ssr: false }
+);
 
 export default function BoxSwap() {
   const [buyPrice, setBuyPrice] = useState("Loading...");
@@ -15,15 +36,58 @@ export default function BoxSwap() {
   const [sellBoxId, setSellBoxId] = useState(0);
   const [isBuyDropdownOpen, setIsBuyDropdownOpen] = useState(false);
   const [isSellDropdownOpen, setIsSellDropdownOpen] = useState(false);
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [modal, setModal] = useState();
+  const [appArea, setAppArea] = useState();
 
   const { data: signer, isError, isLoading } = useSigner();
+  const { chain } = useNetwork();
   const contract = useContract({
     address: ADDRESS,
     abi: ABI,
     signerOrProvider: signer,
   });
 
-  const { address } = useAccount();
+  const { address, isConnected } = useAccount();
+
+  // useEffect(() => {
+  //   if (isConnected && chain.id === NETWORK_ID) {
+  //     getBalance(buyBoxId, setBuyBalance);
+  //     getPrice(buyBoxId, setBuyPrice);
+  //     getBalance(sellBoxId, setSellBalance);
+  //     getPrice(sellBoxId, setSellPrice);
+  //     setAppArea(<LogInView />);
+  //   } else {
+  //     setAppArea(<LogOutView />);
+  //   }
+  // }, []);
+
+  // useEffect(() => {
+  //   if (isConnected) {
+  //     if (chain.id === NETWORK_ID) {
+  //       getBalance(buyBoxId, setBuyBalance);
+  //       getPrice(buyBoxId, setBuyPrice);
+  //       getBalance(sellBoxId, setSellBalance);
+  //       getPrice(sellBoxId, setSellPrice);
+  //       setAppArea(<LogInView />);
+  //     } else {
+  //       setAppArea(
+  //         <div className={styles.connectWalletBody}>
+  //           <SwitchNetworkButton2 />
+  //         </div>
+  //       );
+  //     }
+  //   } else {
+  //     setAppArea(
+  //       <div className={styles.connectWalletBody}>
+  //         <h4 className={styles.connectWalletBodyText}>
+  //           Wallet is not connected!
+  //         </h4>
+  //         <Web3Button />
+  //       </div>
+  //     );
+  //   }
+  // }, [isConnected, chain]);
 
   const getBalance = async (boxId, setBalance) => {
     try {
@@ -131,9 +195,6 @@ export default function BoxSwap() {
                         <h3 className={styles.dropdownBoxName}>
                           {box.boxName}
                         </h3>
-                        <p
-                          className={styles.dropdownBoxId}
-                        >{`Box Id: ${box.boxId}`}</p>
                       </button>
                     </li>
                   );
@@ -195,33 +256,97 @@ export default function BoxSwap() {
     );
   };
 
-  const swapHandler = () => {
-    alert("Swap");
+  const swapHandler = async (event) => {
+    event.preventDefault();
+    if (buyBoxId != sellBoxId) {
+      try {
+        const tx = await contract.swapBox(sellBoxId, buyBoxId);
+        const etherscanLink = `https://polygonscan.com/tx/${tx.hash}`;
+        setModal(
+          <TransactionInProcess
+            etherscanTxLink={etherscanLink}
+            backHandler={setModalOpen}
+          />
+        );
+        setModalOpen(true);
+        const tx1 = await tx.wait();
+        console.log({ tx1 });
+        setModal(
+          <TransactionCompleted
+            etherscanTxLink={etherscanLink}
+            sellBoxId={sellBoxId}
+            buyBoxId={buyBoxId}
+            type="swap"
+            backHandler={setModalOpen}
+          />
+        );
+        setModalOpen(true);
+        getBalance();
+        getPrice();
+      } catch (e) {
+        console.log(e);
+        setModal(
+          <TransactionFailed backHandler={setModalOpen} error={e.reason} />
+        );
+        setModalOpen(true);
+      }
+    } else {
+      alert("Can't swap with same boxes");
+    }
   };
+
+  const LogInView = () => {
+    return (
+      <div className={styles.swapArea}>
+        <SellBox />
+        <div className={styles.betweenBoxes}>
+          <div className={styles.root}>
+            <button
+              className={styles.glowingBtn}
+              onClick={(event) => {
+                swapHandler(event);
+              }}
+            >
+              <span className={styles.glowingTxt}>
+                Swap&nbsp;
+                <i
+                  class="bi bi-arrow-right"
+                  style={{
+                    fontSize: "17px",
+                  }}
+                />
+              </span>
+            </button>
+          </div>
+        </div>
+        <BuyBox />
+      </div>
+    );
+  };
+
+  // const LogOutView = () => {
+  //   return (
+  //     <div className={styles.connectWalletBody}>
+  //       {isConnected ? (
+  //         <SwitchNetworkButton2 />
+  //       ) : (
+  //         <>
+  //           <h4 className={styles.connectWalletBodyText}>
+  //             Wallet is not connected!
+  //           </h4>
+  //           <Web3Button />
+  //         </>
+  //       )}
+  //     </div>
+  //   );
+  // };
 
   return (
     <>
       <main className={styles.background}>
         <Navbar activePage="boxswap" />
-        <div className={styles.swapArea}>
-          <SellBox />
-          <div className={styles.betweenBoxes}>
-            <div className={styles.root}>
-              <button className={styles.glowingBtn} onClick={swapHandler}>
-                <span className={styles.glowingTxt}>
-                  Swap&nbsp;
-                  <i
-                    class="bi bi-arrow-right"
-                    style={{
-                      fontSize: "17px",
-                    }}
-                  />
-                </span>
-              </button>
-            </div>
-          </div>
-          <BuyBox />
-        </div>
+        <LogInView />
+        {isModalOpen && modal}
       </main>
     </>
   );
