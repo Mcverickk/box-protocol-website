@@ -123,3 +123,58 @@
 .etherscanButton:hover {
   background-color: #00000026;
 }
+
+.WIPmodalOverlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.WIPmodalContent {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.169);
+  backdrop-filter: blur(80px);
+  padding: 40px;
+  border-radius: 40px;
+  width: 60%;
+  height: 60%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.WIPHeader {
+  padding: 10px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.WIPimage {
+  text-align: center;
+  width: 40%;
+}
+
+.WIPMessage {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: 5px;
+  color: rgba(240, 248, 255, 0.9);
+}
+.WIPDetail {
+  padding: 0px 40px;
+  margin-top: 50px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 300;
+  color: rgba(240, 248, 255, 0.75);
+}

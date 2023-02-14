@@ -2,6 +2,8 @@ import styles from "@/styles/CreateBox.module.css";
 import Navbar from "@/components/Navbar/AppNavbar";
 import { useState, useEffect } from "react";
 import { TokenRow } from "@/components/CreateBox/TokenRow";
+import { WorkInProgress } from "@/components/Modals/WorkInProgress";
+import { CREATE_BOX_MESSAGE } from "@/components/constants";
 
 export default function CreateBox() {
   const [n, setN] = useState(2);
@@ -74,6 +76,7 @@ export default function CreateBox() {
             </form>
           </div>
         </div>
+        <WorkInProgress header="COMING SOON" message={CREATE_BOX_MESSAGE} />
       </main>
     </>
   );
