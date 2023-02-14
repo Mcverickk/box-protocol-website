@@ -296,32 +296,43 @@ export default function BoxSwap() {
   };
 
   const LogInView = () => {
-    return (
-      <div className={styles.swapArea}>
-        <SellBox />
-        <div className={styles.betweenBoxes}>
-          <div className={styles.root}>
-            <button
-              className={styles.glowingBtn}
-              onClick={(event) => {
-                swapHandler(event);
-              }}
-            >
-              <span className={styles.glowingTxt}>
-                Swap&nbsp;
-                <i
-                  class="bi bi-arrow-right"
-                  style={{
-                    fontSize: "17px",
-                  }}
-                />
-              </span>
-            </button>
+    try {
+      if (!address) {
+        return (
+          <>
+            <p className={styles.loadingScreen}>Connect Wallet!</p>;
+          </>
+        );
+      }
+      return (
+        <div className={styles.swapArea}>
+          <SellBox />
+          <div className={styles.betweenBoxes}>
+            <div className={styles.root}>
+              <button
+                className={styles.glowingBtn}
+                onClick={(event) => {
+                  swapHandler(event);
+                }}
+              >
+                <span className={styles.glowingTxt}>
+                  Swap&nbsp;
+                  <i
+                    class="bi bi-arrow-right"
+                    style={{
+                      fontSize: "17px",
+                    }}
+                  />
+                </span>
+              </button>
+            </div>
           </div>
+          <BuyBox />
         </div>
-        <BuyBox />
-      </div>
-    );
+      );
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   // const LogOutView = () => {

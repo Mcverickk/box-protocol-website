@@ -383,3 +383,11 @@
   font-weight: 300;
   color: rgba(240, 248, 255, 0.587);
 }
+
+.loadingScreen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(240, 248, 255, 0.9);
+}
