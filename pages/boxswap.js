@@ -300,7 +300,7 @@ export default function BoxSwap() {
       if (!address) {
         return (
           <>
-            <p className={styles.loadingScreen}>Connect Wallet!</p>;
+            <p className={styles.loadingScreen}>Connect Wallet!</p>
           </>
         );
       }
