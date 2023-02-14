@@ -23,7 +23,7 @@ export default function CreateBox() {
     <>
       <main className={styles.background}>
         <Navbar activePage="createbox" />
-        <div className={styles.body}>
+        {/* <div className={styles.body}>
           <div className={styles.outerBox}>
             <form className={styles.buyBox} onSubmit={createBoxHandler}>
               <h2 className={styles.boxName}>Create Box</h2>
@@ -75,7 +75,7 @@ export default function CreateBox() {
               </button>
             </form>
           </div>
-        </div>
+        </div> */}
         <WorkInProgress header="COMING SOON" message={CREATE_BOX_MESSAGE} />
       </main>
     </>
