@@ -1,6 +1,6 @@
 import styles from "@/styles/Team.module.css";
 import Navbar from "../components/Navbar/TeamNavbar";
-import { CHIRAG, TARUN, SWAYAM } from "@/components/constants";
+import { CHIRAG, TARUN, SWAYAM, AVIRAL } from "@/components/constants";
 
 export default function Team() {
   const TeamCard = ({
@@ -114,6 +114,14 @@ export default function Team() {
             twitter={TARUN.TWITTER}
             instagram={TARUN.INSTAGRAM}
             email={TARUN.EMAIL}
+          />
+          <TeamCard
+            name="Aviral Agarwal"
+            image="./aviral.jpeg"
+            bio={AVIRAL.BIO}
+            linkedin={AVIRAL.LINKEDIN}
+            email={AVIRAL.EMAIL}
+            github={AVIRAL.GITHUB}
           />
           <TeamCard
             name="Swayam Ranjan"
