@@ -25,13 +25,13 @@ const SWAYAM = {
 };
 
 const AVIRAL = {
-  BIO: "I am a third year undergraduate student at BITS Pilani, Goa, where I am pursuing a dual degree in B.E Electronics & Instrumentation and M.Sc Mathematics. I am a passionate believer in blockchain technology and enjoy exploring more of it. I am always eager to learn more about blockchain. Apart from that, I also hold a Position of responsibility as head of partnerships at Blockchain Club BITS Goa.",
+  BIO: "I am a final year undergraduate at BITS Pilani, Goa, where I am pursuing a dual degree in B.E Mechanical & M.Sc Economics. My enthusiasm for blockchain technology is palpable, and I take pleasure in exploring its various aspects. Learning more about blockchain is always a top priority for me, as I remain a dedicated and passionate believer in its potential.",
   LINKEDIN: "https://www.linkedin.com/in/aviral-agarwal-9041a2167/",
   EMAIL: "aviral.a15@gmail.com",
   GITHUB: "https://github.com/Aviral1506",
 };
 
-const DOCS_LINK = "https://github.com/Mcverickk/box-protocol-frontend";
+const DOCS_LINK = "https://github.com/Mcverickk/box-protocol-contracts";
 
 const NETWORK_NAME = "Polygon";
 const NETWORK_ID = 137;
